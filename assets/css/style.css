@@ -446,7 +446,8 @@ a{
 
 /* start features section */
 .features{
-    background-color: azure;
+    background-color:f5b5b5;
+    transition: all 0.5s;
 }
 
 .features .content p{
@@ -523,11 +524,8 @@ a{
 .features .feature1 .icon1{
     color:#ee4038;
     font-size: 40px;
-    text-align:right !important;
+    text-align:center !important;
     font-weight: 100;
-    padding-left: 200px;
-    
-
 }
 .features .feature2 .icon2{
     color:#34a855;
@@ -535,57 +533,58 @@ a{
     text-align: center !important;
     font-weight: 100;
     margin: auto !important;
-    padding-left: 200px;
+    
 
 }
 .features .feature3 .icon3{
     color:#fbbd06;
     font-size: 40px;
-    text-align: center;
+    text-align: center !important;
     font-weight: 100;
     margin: auto;
-    padding-left: 200px;
+    
 
 }
 .features .feature4 .icon4{
     color:#4384f6;
     font-size: 40px;
-    text-align: center;
+    text-align: center !important;
     font-weight: 100;
     margin: auto ;
-    padding-left: 200px;
+    
 }
 .features .feature1:hover{
     background-color:rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width:100%;
-    transition: 2s;
+    transition: 1s;
     
 }
 .features .feature2:hover{
     background-color:rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width:100%;
-    transition: 2s;
+    transition: 0.5s;
     
 }
 .features .feature3:hover{
     background-color:rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width:100%;
-    transition: 2s;
+    transition: 0.5s;
     
 }
 .features .feature4:hover{
     background-color:rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width:100%;
-    transition: 2s;
+    transition: 0.5s;
     
 }
 .features .feature1{
     animation-name: contentLeft;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
+    
 }
 .features .feature2{
     animation-name: contentLeft;
@@ -692,9 +691,8 @@ box-shadow: none;
 .contact .form{
     width: 90% !important;
 }
-.items{
-    margin-left: 130px !important;
-}
+
+
 .items .icon1{
     color:#ee4038;
     font-size: 30px;
@@ -711,7 +709,10 @@ box-shadow: none;
     font-size: 30px;
 }
 .items .item span{
-    font-size: 25px;
+    font-size: 20px;
+}
+@media(min-width:772px) and (max-width:767px) {
+   
 }
 /* start map sectiion */
 .map{
@@ -736,7 +737,7 @@ box-shadow: none;
     left: 0;
     z-index: 1;
     width: 100%;
-    background-color: rgba(20,150,1,0.2);
+    background-color: rgba(21, 150, 1, 0.116);
 }
 .map .social-icons .desc{
     margin-left: 10px;
