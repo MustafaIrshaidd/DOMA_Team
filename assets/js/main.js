@@ -1,12 +1,29 @@
-let links = document.querySelectorAll('nav .nav-item');
+let mainBtn=document.getElementById('mainBtn');
+let aboutBtn=document.getElementById('aboutBtn');
+let featureBtn=document.getElementById('featureBtn');
 
-links.forEach(function(link){
-    link.addEventListener('click',function(e){
-        links.forEach(function(link){
-            link.classList.remove('active');
-        })
-        link.classList.add('active');
-    })
+window.addEventListener('scroll',function(){
+    console.log(window.scrollY)
+    if(window.scrollY<750){
+        mainBtn.classList.add('active');
+        aboutBtn.classList.remove('active');
+        featureBtn.classList.remove('active');
+    }
+    else if(window.scrollY>750 && window.scrollY<2750 ){
+        mainBtn.classList.remove('active');
+        aboutBtn.classList.add('active');
+        featureBtn.classList.remove('active');
+    }
+    else if(window.scrollY>2750 && window.scrollY<3700){
+        mainBtn.classList.remove('active');
+        aboutBtn.classList.remove('active');
+        featureBtn.classList.add('active');
+    }
+    else{
+        mainBtn.classList.add('active');
+        aboutBtn.classList.remove('active');
+        featureBtn.classList.remove('active');
+    }
 })
 
 

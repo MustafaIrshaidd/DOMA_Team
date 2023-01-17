@@ -305,7 +305,7 @@ header .overlay .container h1{
 header .overlay .container p{
     font-size: 3rem;
     font-family: Regular;
-    color:var(--red);
+    color:white;
     position: absolute;
     top: 55%;
     left: 14%;
