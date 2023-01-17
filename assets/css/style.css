@@ -28,8 +28,70 @@ body{
 
 ::selection{
     background-color: transparent;
-    color:#ee4038;
+    color:var(--red);
 }
+
+
+
+/* Start Fixed Social Media Icons */
+.social_fixed{
+    z-index:-1;
+    bottom:5%;
+    right:1%;
+    z-index: 9999;
+}
+.social_fixed .social_link a{
+    transition: all 0.5s;  
+}
+.social_fixed .social_link a i{
+    display: block;
+}
+
+.social_fixed .social_link:nth-child(1) a{
+    background-color: var(--white);
+    border-color:var(--blue) !important;
+    color:var(--blue) !important;
+}
+.social_fixed .social_link:nth-child(2) a{
+    background-color: var(--white);
+    border-color:var(--red) !important;
+    color:var(--red) !important;
+    
+}
+.social_fixed .social_link:nth-child(3) a{
+    background-color: var(--white);
+    border-color:var(--yellow) !important;
+    color:var(--yellow) !important;
+    
+}
+.social_fixed .social_link:nth-child(4) a{
+    background-color: var(--white);
+    border-color:var(--green) !important;
+    color:var(--green) !important;
+    
+}
+
+.social_fixed .social_link:nth-child(1) a:hover{
+    background-color: var(--blue);
+    color:white !important;
+    transform: rotate(360deg);
+}
+.social_fixed .social_link:nth-child(2) a:hover{
+    background-color: var(--red);
+    color:white !important;
+    transform: rotate(360deg);
+}
+.social_fixed .social_link:nth-child(3) a:hover{
+    background-color: var(--yellow);
+    color:white !important;
+    transform: rotate(360deg);
+}
+.social_fixed .social_link:nth-child(4) a:hover{
+    background-color: var(--green);
+    color:white !important;
+    transform: rotate(360deg);
+}
+/* End Fixed Social Media Icons */
 
 /* Start Nav */
 .navbar-expand-lg{

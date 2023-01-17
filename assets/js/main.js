@@ -1,3 +1,19 @@
+let links = document.querySelectorAll('nav .nav-item');
+
+links.forEach(function(link){
+    link.addEventListener('click',function(e){
+        links.forEach(function(link){
+            link.classList.remove('active');
+        })
+        link.classList.add('active');
+    })
+})
+
+
+
+
+
+
 //Gallery
 ScrollReveal({
     reset: false,
