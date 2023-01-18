@@ -343,23 +343,6 @@ header .overlay .container p{
     border-radius: 16px;
     background-color: rgba(0,0,0,0.4);
 }
-/* .gallery img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.gallery .img3{
-    height: 400px;
-}
-.gallery .img1{
-    height: 500px;
-}
-.gallery .img4{
-    height: 360px;
-}
-.gallery .img2{
-    height: 260px;
-} */
 /* ############ interested ############ */
 .interested .card{
     height: 300px;
