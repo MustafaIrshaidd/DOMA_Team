@@ -330,7 +330,20 @@ header .overlay .container p{
 /* End of Header */
 
 /* ############ gallery ############ */
-.gallery img{
+.gallery .carousel-item{
+    width: 100%;
+    height: 35rem;
+}
+.gallery .carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery .carousel-item .carousel-caption{
+    border-radius: 16px;
+    background-color: rgba(0,0,0,0.4);
+}
+/* .gallery img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -346,7 +359,7 @@ header .overlay .container p{
 }
 .gallery .img2{
     height: 260px;
-}
+} */
 /* ############ interested ############ */
 .interested .card{
     height: 300px;
@@ -365,7 +378,7 @@ header .overlay .container p{
 .interested .card h3{
     color: var(--white);
 }
-.interested .card .overlay {
+.interested .card .overlay{
     content: "";
     position: absolute;
     top: 0;
