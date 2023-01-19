@@ -42,3 +42,12 @@ ScrollReveal().reveal('.gallery .gallery-title,.interested .interested-title', {
 ScrollReveal().reveal('.interested .cardL', { delay: 400, origin:'left'});
 ScrollReveal().reveal('.interested .cardC', { delay: 400, origin:'bottom'});
 ScrollReveal().reveal('.interested .cardR', { delay: 400, origin:'right'});
+
+
+
+
+/////////feature section library
+ScrollReveal().reveal('.features .feature1', { delay: 100, origin:'left'});
+ScrollReveal().reveal('.features .feature2', { delay: 200, origin:'left'});
+ScrollReveal().reveal('.features .feature3', { delay: 300, origin:'left'});
+ScrollReveal().reveal('.features .feature4', { delay: 400, origin:'left'});

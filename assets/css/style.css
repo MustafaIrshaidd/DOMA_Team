@@ -640,23 +640,7 @@ a{
     transition: 0.5s;
     
 }
-.features .feature1{
-    animation-name: contentLeft;
-    animation-duration: 0.5s;
-    
-}
-.features .feature2{
-    animation-name: contentLeft;
-    animation-duration: 2s;
-}
-.features .feature3{
-    animation-name: contentLeft;
-    animation-duration: 3s;
-}
-.features .feature4{
-    animation-name: contentLeft;
-    animation-duration: 4s;
-}
+
 @keyframes contentLeft {
     0%{
         transform: translateX(-100%);
