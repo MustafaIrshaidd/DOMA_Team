@@ -668,19 +668,6 @@ a{
         transform: translateX(0%);
     }
 }
-.features .feature1:hover .icon1{
-    font-size: 45px;
-}
-.features .feature2:hover .icon2{
-    font-size: 45px;
-}
-.features .feature3:hover .icon3{
-    font-size: 45px;
-}
-.features .feature4:hover .icon4{
-    font-size: 45px;
-}
-
 /* start contact section  */
 .view{
     width: 60px;
