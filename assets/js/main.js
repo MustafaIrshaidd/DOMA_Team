@@ -42,6 +42,3 @@ ScrollReveal().reveal('.gallery .gallery-title,.interested .interested-title', {
 ScrollReveal().reveal('.interested .cardL', { delay: 400, origin:'left'});
 ScrollReveal().reveal('.interested .cardC', { delay: 400, origin:'bottom'});
 ScrollReveal().reveal('.interested .cardR', { delay: 400, origin:'right'});
-
-
-
