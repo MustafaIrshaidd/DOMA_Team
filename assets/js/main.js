@@ -1,3 +1,26 @@
+//Loading Screen
+
+let body=document.body;
+body.style.overflow='hidden';
+let loader=document.querySelector('.loader');
+console.log(loader);
+loader.style.opacity='1';
+loader.style.visibility='visible';
+
+
+window.addEventListener('load',function(){
+    this.setTimeout(function(){
+        body.style.overflow='visible';
+        loader.style.opacity='0';
+        loader.style.visibility='hidden';
+        loader.style.transition='0.5s';
+        loader.style.zindex='-414';
+        
+    }, 1500)
+})
+
+//NavBar
+
 let mainBtn=document.getElementById('mainBtn');
 let aboutBtn=document.getElementById('aboutBtn');
 let featureBtn=document.getElementById('featureBtn');
@@ -9,12 +32,12 @@ window.addEventListener('scroll',function(){
         aboutBtn.classList.remove('active');
         featureBtn.classList.remove('active');
     }
-    else if(window.scrollY>750 && window.scrollY<2750 ){
+    else if(window.scrollY>750 && window.scrollY<1488 ){
         mainBtn.classList.remove('active');
         aboutBtn.classList.add('active');
         featureBtn.classList.remove('active');
     }
-    else if(window.scrollY>2750 && window.scrollY<3700){
+    else if(window.scrollY>1488 && window.scrollY<2188){
         mainBtn.classList.remove('active');
         aboutBtn.classList.remove('active');
         featureBtn.classList.add('active');
