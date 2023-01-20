@@ -3,7 +3,6 @@
 let body=document.body;
 body.style.overflow='hidden';
 let loader=document.querySelector('.loader');
-console.log(loader);
 loader.style.opacity='1';
 loader.style.visibility='visible';
 
@@ -26,7 +25,6 @@ let aboutBtn=document.getElementById('aboutBtn');
 let featureBtn=document.getElementById('featureBtn');
 
 window.addEventListener('scroll',function(){
-    console.log(window.scrollY)
     if(window.scrollY<750){
         mainBtn.classList.add('active');
         aboutBtn.classList.remove('active');
@@ -48,6 +46,14 @@ window.addEventListener('scroll',function(){
         featureBtn.classList.remove('active');
     }
 })
+
+// routing to login page
+let login = document.getElementById('login');
+
+login.addEventListener('click',function(){
+    window.location.href="login.html";
+})
+
 
 
 

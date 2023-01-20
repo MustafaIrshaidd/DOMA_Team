@@ -271,7 +271,7 @@ header .overlay .container .logo .green{
         opacity: 1;
     }
     100%{
-       left: 0%;
+       top: 0%;
      }
 }
 @keyframes slideRed {
