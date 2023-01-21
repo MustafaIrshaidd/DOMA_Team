@@ -90,18 +90,23 @@ label{
     font-family: 'Almarai', sans-serif;
 }
 
+.form{
+    z-index: 9999;
+    background-color: var(--white);
+}
+
 /* logo animation */
 
 .blue{
     animation-name:slideBlue;
-    animation-duration: 3s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     margin-right:0;
 }
 .red{
     animation-name:slideRed;
-    animation-duration: 3s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     margin-bottom:0;
@@ -109,14 +114,14 @@ label{
 }
 .green{
     animation-name:slideGreen;
-    animation-duration: 3s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     margin-left:0;
 }
 .yellow{
     animation-name:slideYellow;
-    animation-duration: 3s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     margin-top:0;
@@ -126,7 +131,7 @@ label{
     0%{
         margin-right:150%;
     }
-    50%{
+    40%{
         margin-right:0;
     }
     100%{
@@ -137,7 +142,7 @@ label{
     0%{
         margin-bottom:150%;  
     }
-    50%{
+    40%{
         margin-bottom:0;
     }
     100%{
@@ -148,7 +153,7 @@ label{
     0%{
         margin-left:150%;
     }
-    50%{
+    40%{
         margin-left:0;
     }
     100%{
@@ -159,11 +164,23 @@ label{
     0%{
         margin-top:150%;
     }
-    50%{
+    40%{
         margin-top:0;
     }
     100%{
         margin-top:0;   
+    }
+}
+
+/* footer */
+.footer{
+    position: relative;
+    z-index:9999;
+}
+
+@media (max-width:1000px) {
+    .logo{
+        height: 67px;
     }
 }
 
