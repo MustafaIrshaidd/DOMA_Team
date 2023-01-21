@@ -12,7 +12,5 @@ window.addEventListener('load',function(){
         loader.style.opacity='0';
         loader.style.visibility='hidden';
         loader.style.transition='0.5s';
-        loader.style.zindex='-414';
-        
     }, 500)
 })

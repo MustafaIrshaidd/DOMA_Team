@@ -75,11 +75,11 @@ body{
     background: #eee;
 }
 .h-custom {
-    height: calc(100% - 73px);
+    height: calc(100% - 74px);
 }
 
 .logo{
-    height: 100px;
+    height: 50px;
     width:100px;
 }
 
@@ -178,9 +178,10 @@ label{
     z-index:9999;
 }
 
-@media (max-width:1000px) {
-    .logo{
-        height: 67px;
+
+
+@media (max-width:1000px){
+    body{
+        overflow: visible !important;
     }
 }
-
