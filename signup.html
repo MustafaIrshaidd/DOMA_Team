@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage SignUp</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- Font Awesome6 -->
+    <link rel="stylesheet" href="/vendor/css/all.min.css">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/signup.css">
+</head>
+<body>
+    <!-- ############ Start Loader Screen ############ -->
+    <section class="loader">
+      <div class="loader2">
+        <div class="load load-outer">
+          <div class="load load-inner"></div>
+        </div>
+       </div>
+    </section>
+    <!-- ############ End Loader Screen ############ -->
+
+    <!-- ############ Start SignUp ############ -->
+
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100 position-relative">
+          <!-- ############ Start Logo Animation ############ -->
+          <div class="col-md-9 col-lg-6 col-xl-5 d-flex align-items-center justify-content-center overflow-hidden">
+            <div class="img d-flex flex-row align-items-center justify-content-center justify-content-lg-center">
+              <img class="blue img-fluid position-absolute w-25" src="/assets/images/nav_header/blue.png" alt="image not found">
+              <img class="red img-fluid position-absolute w-25" src="/assets/images/nav_header/red.png" alt="image not found">
+              <img class="green img-fluid position-absolute w-25" src="/assets/images/nav_header/green.png" alt="image not found">
+              <img class="yellow img-fluid position-absolute w-25" src="/assets/images/nav_header/yellow.png" alt="image not found">
+            </div>
+          </div>
+          <!-- ############ End Logo Animation ############ -->
+
+          <!-- ############ Start Form ############ -->
+          <div class="form col-md-8 col-lg-6 col-xl-4">
+            
+            
+            <form>
+                <div class="logo-container d-flex flex-row align-items-center justify-content-center justify-content-lg-center">
+                    <div class="logo">
+                      <a href="index.html"><img class="img-fluid" src="/assets/images/nav_header/stageLogo.png" alt=""></a>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-center mb-2">
+                    <p class="lead fw-normal mb-0">انشاء حساب</p>
+                </div>
+        
+                <div class="row">
+                    <div class="col-6 mb-4">
+    
+                      <div class="form-outline">
+                        <input type="text" id="firstName" class="form-control form-control-lg" />
+                        <label class="form-label" for="firstName">First Name</label>
+                      </div>
+    
+                    </div>
+                    <div class="col-6 mb-4">
+    
+                      <div class="form-outline">
+                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                        <label class="form-label" for="lastName">Last Name</label>
+                      </div>
+    
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 mb-4 pb-2">
+    
+                      <div class="form-outline">
+                        <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                        <label class="form-label" for="emailAddress">Email</label>
+                      </div>
+    
+                    </div>
+                    <div class="col-6 mb-4 pb-2">
+    
+                      <div class="form-outline">
+                        <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                      </div>
+    
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-6 mb-4 d-flex align-items-center">
+    
+                      <div class="form-outline datepicker w-100">
+                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+                        <label for="birthdayDate" class="form-label">Password</label>
+                      </div>
+    
+                    </div>
+                    <div class="col-6 mb-4 d-flex align-items-center">
+    
+                        <div class="form-outline datepicker w-100">
+                          <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+                          <label for="birthdayDate" class="form-label">Reenter Password</label>
+                        </div>
+      
+                      </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-6 mb-4 d-flex align-items-center">
+    
+                      <div class="form-outline datepicker w-100">
+                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+                        <label for="birthdayDate" class="form-label">Age</label>
+                      </div>
+    
+                    </div>
+                    <div class="col-6 mb-4">
+    
+                      <h6 class="mb-2 pb-1">Gender: </h6>
+
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                          value="option1" checked />
+                        <label class="form-check-label" for="maleGender">Male</label>
+                      </div>
+    
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                          value="option2" />
+                        <label class="form-check-label" for="femaleGender">Female</label>
+                      </div>
+    
+                    </div>
+                </div>
+    
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    <button type="button" class="btn btn-primary btn-lg rounded-pill w-100"
+                      style="padding-left: 2.5rem; padding-right: 2.5rem;">انشاء حساب</button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">هل لديك حساب ؟ 
+                      <a href="login.html" class="red">تسجيل الدخول</a></p>
+                </div>
+    
+            </form>
+          </div>
+          <!-- ############ End Form ############ -->
+        </div>
+      </div>
+
+      <!-- ############# Start Footer ############# -->
+      <div class="footer d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+
+      <div class="text-white mb-3 mb-md-0">
+        Copyright © 2023. All rights reserved.
+       </div>
+
+      <div>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="#!" class="text-white">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      </div>
+      <!-- ############# End Footer ############# -->
+    </section> 
+
+    <!-- ############ End SignUp ############ -->
+
+
+    <!-- MDB JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/assets/js/login.js"></script>
+    
+    
+</body>
+</html>
