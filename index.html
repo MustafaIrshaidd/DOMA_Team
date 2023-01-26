@@ -17,6 +17,16 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
+  <!-- ############ start Loader Screen ############ -->
+  <section class="loader">
+    <div class="loader2">
+      <div class="load load-outer">
+        <div class="load load-inner"></div>
+      </div>
+    </div>
+  </section>
+  <!-- ############ end Loader Screen ############ -->
+
   <!-- ############ start Fixed Social Media Icons ############ -->
   <div class="social_fixed position-fixed">
       <div class="social_link d-flex justify-content-column align-items-center my-2">
@@ -37,7 +47,7 @@
   <!-- ############ start nav ############ -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid container">
-          <button class="btn pill">تسجيل الدخول</button>
+          <button class="btn pill" id="login">تسجيل الدخول</button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
               <li class="nav-item py-3 px-2 text-end active" id="mainBtn">
@@ -151,7 +161,50 @@
         </div>
     </section>
 
-      <!-- end of about us -->
+    <!-- end of about us -->
+
+    <!-- start features section -->
+    <section class="features" id="features">
+      <div class="container ">
+          <div class="content">
+              <h2 class=""> ماذا نقدم؟</h2>
+              <p class="text-align-center"> ما هي أهم مميزات ستيج؟</p>
+          </div>
+          <div class="row mt-3">
+              
+              <div class="col-md-5 h-100 pb-2 ">
+                 <div class="feature1  text-center mb-2">
+                  <span class="icon1"> <i class="fa-solid fa-wifi"></i></span>
+                  <h3 class="header-feature w-100">واي فاي مجاني</h3>
+                  <p class="pa-feature">يتوفر لدينا نت مجاني وسريع لتسهيل التواصل</p>
+                 </div>
+                  <div class="feature2 text-center mb-2">
+                      <span class="icon2"> <i class="fa-solid fa-tv"></i></span>
+                      <h3 class="header-feature w-100">شاشة عـرض </h3>
+                      <p class="pa-feature">يوجد لدينا شاشة عرض لتسهيل عرض اعمالكم</p>
+                  </div>
+                  <div class="feature3 text-center mb-2">
+                      <span class="icon3"> <i class="fa-regular fa-life-ring"></i></span>
+                      <h3 class="header-feature w-100">بيئة عمل مريـحة</h3>
+                      <p class="pa-feature"> نهدف الى توفير بيئة عمل جميلة وهادئة وبالتالي حصولكم على نتائج افضل</p>
+                  </div>
+                  <div class="feature4 text-center mb-2">
+                      <span class="icon4"> <i class="fa-solid fa-location-pin"></i></span>
+                      <h3 class="header-feature w-100">مساحة واسـعة </h3>
+                      <p class="pa-feature"> نهدف الى جعل مناسباتكم واجتماعاتكم بأجمل صورة </p>
+                  </div>
+              </div>
+              <div class="col-md-7 ">
+                  <div class="image">
+                      <img src="/assets/images/gallery_interested/1.jpeg" class="w-100 rounded-5" alt="">
+                  
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- end features section -->
+
 
     <!-- ############ start gallery ############ -->
     <section class="gallery" id="gallery">
@@ -227,48 +280,7 @@
 
 
 
-    <!-- start features section -->
-    <section class="features" id="features">
-      <div class="container ">
-          <div class="content">
-              <h2 class=""> ماذا نقدم؟</h2>
-              <p class="text-align-center"> ما هي أهم مميزات ستيج؟</p>
-          </div>
-          <div class="row mt-3">
-              
-              <div class="col-md-5 h-100 pb-2 ">
-                 <div class="feature1  text-center mb-2">
-                  <span class="icon1"> <i class="fa-solid fa-wifi"></i></span>
-                  <h3 class="header-feature w-100">واي فاي مجاني</h3>
-                  <p class="pa-feature">يتوفر لدينا نت مجاني وسريع لتسهيل التواصل</p>
-                 </div>
-                  <div class="feature2 text-center mb-2">
-                      <span class="icon2"> <i class="fa-solid fa-tv"></i></span>
-                      <h3 class="header-feature w-100">شاشة عـرض </h3>
-                      <p class="pa-feature">يوجد لدينا شاشة عرض لتسهيل عرض اعمالكم</p>
-                  </div>
-                  <div class="feature3 text-center mb-2">
-                      <span class="icon3"> <i class="fa-regular fa-life-ring"></i></span>
-                      <h3 class="header-feature w-100">بيئة عمل مريـحة</h3>
-                      <p class="pa-feature"> نهدف الى توفير بيئة عمل جميلة وهادئة وبالتالي حصولكم على نتائج افضل</p>
-                  </div>
-                  <div class="feature4 text-center mb-2">
-                      <span class="icon4"> <i class="fa-solid fa-location-pin"></i></span>
-                      <h3 class="header-feature w-100">مساحة واسـعة </h3>
-                      <p class="pa-feature"> نهدف الى جعل مناسباتكم واجتماعاتكم بأجمل صورة </p>
-                  </div>
-              </div>
-              <div class="col-md-7 ">
-                  <div class="image">
-                      <img src="/assets/images/gallery_interested/1.jpeg" class="w-100 rounded-5" alt="">
-                  
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- end features section -->
-
+    
      
   <!-- ############ start interested ############ -->
   <section class="interested my-5" id="interested">
