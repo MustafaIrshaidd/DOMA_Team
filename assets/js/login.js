@@ -14,3 +14,5 @@ window.addEventListener('load',function(){
         loader.style.transition='0.5s';
     }, 500)
 })
+
+
