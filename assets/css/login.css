@@ -6,7 +6,9 @@
 
 body{
     font-family: Regular;
+    background-color: #fbfbfd;
 }
+
 
 :root{
     --red:#ee4038;
@@ -20,7 +22,7 @@ body{
 }
 
 ::selection{
-    color:var(--red);
+    color:var(--blue);
 }
 
 /* Start Loader Screen */

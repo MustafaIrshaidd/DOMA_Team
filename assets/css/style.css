@@ -9,6 +9,11 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    
+}
+
+body{
+    font-family: Regular;
 }
 
 :root{
@@ -18,9 +23,6 @@
     --blue:#4384f6;
     --white:#fff;
 }
-body{
-    font-family: Regular;
-}
 
 .container{
     width:80%
@@ -28,7 +30,7 @@ body{
 
 ::selection{
     background-color: transparent;
-    color:var(--red);
+    color:var(--blue);
 }
 
 /* Start Loader Screen */
@@ -136,6 +138,17 @@ body{
 /* End Fixed Social Media Icons */
 
 /* Start Nav */
+.navbar{
+    background-color: #fbfbfd !important;
+}
+.navbar .container .navbar-brand img{
+    transition:all 0.25s;
+    transform: scale(1.05);
+}
+.navbar .container .navbar-brand:hover img{
+    transform: scale(0.95);
+}
+
 .navbar-expand-lg{
     position: fixed !important;
     z-index: 10;
@@ -167,7 +180,7 @@ nav .nav-item{
 nav .nav-item::after{
     content:'';
     position: absolute;
-    background-color:var(--red);
+    background-color:var(--blue);
     bottom:0;
     left:0;
     right:0;
@@ -180,10 +193,10 @@ nav .nav-item:hover::after{
     transform: scaleX(1);
 }
 nav .nav-item:hover > a{
-    color:var(--red) !important;
+    color:var(--blue) !important;
 }
 nav .active > a{
-    color:var(--red) !important;
+    color:var(--blue) !important;
 }
 nav .active::after{
     transform: scaleX(1);
@@ -447,22 +460,17 @@ a{
     text-decoration: none;
     
 }
-.fullbox {
-    display: flex;
-    justify-content: center;
-    position: relative;   
+.about-us .container{
+    position: relative;
 }
+
 .video{
-    width: 555px;
-    height: 599px;
+
     padding: 300px 0;
     background-image: url(../images/gallery_interested/image00007.jpeg);
     background-position: center;
     background-size: cover;
     z-index: 1;
-    position: relative;
-    left: -109px;
-     bottom: 22px px ;
 }
 .button {
     padding: 10px;
@@ -470,20 +478,18 @@ a{
 .button a{
     background-color:#ee4038;
     padding: 30px 35px;
-    
 }
 .button i {
     color: white ;
 }
 .about-us .content  {
+    position: absolute;
     width:555px;
     height:486px;
-   
-    position: absolute;
-    top: 104px; 
-    left: 559px; 
-    z-index: 2;
     background-color: #fff;
+    right: 0;
+    
+    z-index: 2;
     
 }
 .about-us .content h6{
@@ -502,7 +508,8 @@ a{
      float: right;
  }
  .about-us .content h6 ,  .about-us .content h3  {
-    text-align: right;
+    
+    text-align: justify;
     
 }
 .about-us .content-carousel{
