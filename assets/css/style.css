@@ -476,7 +476,11 @@ header .overlay .container p{
     background-color: var(--red);
 }
 .interested .card .card-title .t3::after{
-    background-color: var(--green);
+    background-color: var(--green);    
+    left: -5%;
+}
+.interested .card:hover .t3::after{
+    transform: scaleX(1.1);
 }
 .interested .card .card-title .t4::after{
     background-color: var(--yellow);
