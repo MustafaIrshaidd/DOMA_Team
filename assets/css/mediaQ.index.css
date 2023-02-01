@@ -32,7 +32,8 @@
         width:100% !important;
     }
     .navbar-expand-lg .navbar-nav {
-        flex-direction:column !important;
+
+        flex-direction: column-reverse !important;
     }
     header .overlay .container .logo{
         width: 44% !important;
