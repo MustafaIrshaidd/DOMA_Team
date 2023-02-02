@@ -464,6 +464,7 @@ header .overlay .container p{
     height: 5px;
     left: -8%;
     bottom: -30%;
+    transform: scaleX(0);
     transition: 0.5s;
 }
 .interested .card:hover h3::after{
