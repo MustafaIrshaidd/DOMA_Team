@@ -9,6 +9,11 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    
+}
+
+body{
+    font-family: Regular;
 }
 
 :root{
@@ -18,9 +23,6 @@
     --blue:#4384f6;
     --white:#fff;
 }
-body{
-    font-family: Regular;
-}
 
 .container{
     width:80%
@@ -28,7 +30,7 @@ body{
 
 ::selection{
     background-color: transparent;
-    color:var(--red);
+    color:var(--blue);
 }
 
 /* Start Loader Screen */
@@ -136,6 +138,17 @@ body{
 /* End Fixed Social Media Icons */
 
 /* Start Nav */
+.navbar{
+    background-color: #fbfbfd !important;
+}
+.navbar .container .navbar-brand img{
+    transition:all 0.25s;
+    transform: scale(1.05);
+}
+.navbar .container .navbar-brand:hover img{
+    transform: scale(0.95);
+}
+
 .navbar-expand-lg{
     position: fixed !important;
     z-index: 10;
@@ -167,7 +180,7 @@ nav .nav-item{
 nav .nav-item::after{
     content:'';
     position: absolute;
-    background-color:var(--red);
+    background-color:var(--blue);
     bottom:0;
     left:0;
     right:0;
@@ -180,10 +193,10 @@ nav .nav-item:hover::after{
     transform: scaleX(1);
 }
 nav .nav-item:hover > a{
-    color:var(--red) !important;
+    color:var(--blue) !important;
 }
 nav .active > a{
-    color:var(--red) !important;
+    color:var(--blue) !important;
 }
 nav .active::after{
     transform: scaleX(1);
@@ -380,7 +393,7 @@ header .overlay .container p{
 /* ############ gallery ############ */
 .gallery .carousel-item{
     width: 100%;
-    height: 35rem;
+    height: 30rem;
 }
 .gallery .carousel-item img{
     width: 100%;
@@ -391,12 +404,27 @@ header .overlay .container p{
     border-radius: 16px;
     background-color: rgba(0,0,0,0.4);
 }
+.gallery .carousel-indicators [data-bs-target] {
+    text-indent: unset !important;
+}
+.gallery .carousel-indicators{
+    bottom: -2rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.gallery .carousel-indicators button{
+    width: 7rem !important;
+}
+.gallery .carousel-indicators button img{
+    height: 5rem;
+    object-fit: cover;
+}
 /* ############ interested ############ */
 .interested .card{
     height: 300px;
     overflow: hidden;
 }
-.interested .card:hover img:not(:nth-child(1)){
+.interested .card:hover img{
     transform: scale(1.1);
 }
 .interested .card img{
@@ -420,22 +448,42 @@ header .overlay .container p{
     background-color: rgba(0,0,0,0.4);
     z-index: 1;
 }
-.interested .card .line{
-    width: 200px;
-    height: 30px;
-    display: inline-block;
-    top: 50%;
-    left: 10%;
-    position: absolute;
-}
-.interested .card .line img{
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-}
+
 .interested .card .card-title{
    width: 250px;
    z-index: 2;
+}
+.interested .card .card-title h3{
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.interested .card .card-title h3::after{
+    position: absolute;
+    content: "";
+    width: 110%;
+    height: 5px;
+    left: -8%;
+    bottom: -30%;
+    transition: 0.5s;
+}
+.interested .card:hover h3::after{
+    transform: scaleX(1.2);
+}
+.interested .card .card-title .t1::after{
+    background-color: var(--blue);
+}
+.interested .card .card-title .t2::after{
+    background-color: var(--red);
+}
+.interested .card .card-title .t3::after{
+    background-color: var(--green);    
+    left: -5%;
+}
+.interested .card:hover .t3::after{
+    transform: scaleX(1.1);
+}
+.interested .card .card-title .t4::after{
+    background-color: var(--yellow);
 }
 
 /* about-us */
@@ -447,22 +495,17 @@ a{
     text-decoration: none;
     
 }
-.fullbox {
-    display: flex;
-    justify-content: center;
-    position: relative;   
+.about-us .container{
+    position: relative;
 }
+
 .video{
-    width: 555px;
-    height: 599px;
+
     padding: 300px 0;
     background-image: url(../images/gallery_interested/image00007.jpeg);
     background-position: center;
     background-size: cover;
     z-index: 1;
-    position: relative;
-    left: -109px;
-     bottom: 22px px ;
 }
 .button {
     padding: 10px;
@@ -470,20 +513,18 @@ a{
 .button a{
     background-color:#ee4038;
     padding: 30px 35px;
-    
 }
 .button i {
     color: white ;
 }
 .about-us .content  {
+    position: absolute;
     width:555px;
     height:486px;
-   
-    position: absolute;
-    top: 104px; 
-    left: 559px; 
-    z-index: 2;
     background-color: #fff;
+    right: 0;
+    
+    z-index: 2;
     
 }
 .about-us .content h6{
@@ -502,31 +543,32 @@ a{
      float: right;
  }
  .about-us .content h6 ,  .about-us .content h3  {
-    text-align: right;
+    
+    text-align: justify;
     
 }
-.content-carousel{
+.about-us .content-carousel{
     padding-top: 100px;
 
     
 }
-.content-carousel img {
+.about-us .content-carousel img {
     width: 250px;
     height: 250px;
     
 }
-.carousel-control-next-icon {
+.about-us .carousel-control-next-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000' %3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
-.carousel-control-prev-icon {
+.about-us .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
-.carousel-inner{
+.about-us .carousel-inner{
     height: 500px;
 }
 
 
-@media screen and (max-width:768px){
+@media screen and (max-width:1000px){
     .video,  .about-us .content  {
         position: static;
         width: 100%;
