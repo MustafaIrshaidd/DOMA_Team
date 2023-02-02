@@ -139,7 +139,7 @@ body{
 
 /* Start Nav */
 .navbar{
-    background-color: #fbfbfd !important;
+    background-color: transparent !important;
 }
 .navbar .container .navbar-brand img{
     transition:all 0.25s;
@@ -156,7 +156,6 @@ body{
     left:0;
     background-color: white;
     padding:0;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2);
 }
 nav button{
     transition: all 1s;
@@ -208,185 +207,105 @@ nav .navbar-brand img{
 
 /* Start Header */
 header{
+    background-color: #fbfbfd !important;
+    
     overflow: hidden;
-}
-header .overlay{
     height: 100vh;
-    background-image: url(/assets/images/nav_header/back.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     position: relative;
+    z-index:1;
 }
-header .overlay::after{
-    content:'';
-    position: absolute;
-    top:0;
-    bottom:-5px;
-    left:0;
-    right:0;
-    background-color: rgba(33, 37, 41,.55);
-    z-index:0;
+header .content{
+    height: inherit;
+    z-index:3;
 }
-header .overlay .container{
-    position: relative;
+
+header .content h3{
+    width:35%;
     
 }
-header .overlay .container .logo{
-    height:24.7%;
-    width:30%;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform:translate(-10%, -160%);
-    z-index: 1;
-}
-header .overlay .container .logo img{
-    position: absolute;
-    top:0;
-    left:0;
-    user-select: none;
-}
-header .overlay .container .logo .blue{
-    top:0%;
-    animation: slideBlue 2s, rotateLogo 4s;
-    animation-iteration-count: 1;
-    animation-duration: 2s;
-    animation-delay: 1800ms;
-}
-header .overlay .container .logo .red{
-    left:0%;
-    animation: slideRed 2s, rotateLogo 4s;
-    animation-iteration-count: 1;
-    animation-duration: 2s;
-    animation-delay: 1800ms;
-}
-header .overlay .container .logo .yellow{
-    left:0%;
-    animation: slideYellow 2s, rotateLogo 4s;
-    animation-iteration-count: 1;
-    animation-duration: 2s;
-    animation-delay: 1800ms;
-}
-header .overlay .container .logo .green{
-    top:0%;
-    animation: slideGreen 2s , rotateLogo 4s;
-    animation-iteration-count: 1;
-    animation-duration: 2s;
-    animation-delay: 1800ms;
-}
-@keyframes slideBlue {
-    0%{
-       top: -60%;
-       opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-       top: 0%;
-     }
-}
-@keyframes slideRed {
-    0%{
-       left: 50%;
-       opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-       left: 0%;
-     }
-}
-@keyframes slideYellow {
-    0%{
-       left: -36%;
-       opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-       left: 0%;
-     }
-}
-@keyframes slideGreen { 
-    0%{
-       top: 80%;
-       opacity: 0;
-    }
-    50%{
-        opacity: 1;
-    }
-    100%{
-       top: 0%;
-     }
-}
-@keyframes rotateLogo {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-     }
-}
-header .overlay .container h1{
-    color:white;
-    position: absolute;
-    font-family: Regular;
-    font-weight: 500;
-    font-size: 10rem;
-    width:30%;
-    height: 24.7%;
-    left: 0;
-    top: 50%;
-    transform: translate(85%, -117%);
-    z-index: 1;
+
+
+header .content img{
     opacity: 1;
-    animation: comeUP 2s;
-    animation-iteration-count: 1;
-    animation-delay: 1800ms;
+    z-index:-1;
+   
+    transform: scale(1.1);
     
 }
-@keyframes comeUP {
-    0%{
-        top:100%;
-        opacity: 0;
-    }
-    60%{
-        opacity: 0;
-    }
-    100%{
-        top:50%;
-        opacity: 1;
-     }
+header .content .red{
+    width:5%;
+    bottom:-100px;
+    right:500px;
+    animation: animate 15s ease-in-out infinite;
+    animation-delay:5s;
+    
 }
-header .overlay .container p{
-    font-size: 3rem;
-    font-family: Regular;
-    color:white;
-    position: absolute;
-    top: 55%;
-    left: 14%;
-    transform: translateY(-50%,-50%);  
-    animation: paragraphSlide 2.7s;
-    animation-iteration-count: 1;
-    animation-delay: 1800ms;
-    z-index: 1;
+header .content .blue{
+    width:5%;
+    bottom:-200px;
+    left:500px;
+    animation: animate 15s ease-in-out infinite;
+    animation-delay:2s;
+    
 }
-@keyframes paragraphSlide {
+header .content .yellow{
+    width:5%;
+    bottom:-400px;
+    left:50px;
+    animation: animate 12s ease-in-out infinite;
+    animation-delay:5s;
+    
+}
+header .content .green{
+    width:5%;
+    bottom:-400px;
+    right:100px;
+    animation: animate 15s ease-in-out infinite;
+    animation-delay:7s;
+    
+}
+
+header .content .red1{
+    width:3%;
+    bottom:-100px;
+    right:300px;
+    animation: animate 17s linear infinite;
+    animation-delay: 3s;
+    
+}
+header .content .blue1{
+    width:3%;
+    bottom:-200px;
+    left:400px;
+    animation: animate 17s linear infinite;
+    animation-delay: 10s;
+    
+}
+header .content .yellow1{
+    width:3%;
+    bottom:-400px;
+    left:600px;
+    animation: animate 17s linear infinite;
+    animation-delay: 12s;
+    
+}
+header .content .green1{
+    width:3%;
+    bottom:-400px;
+    right:600px;
+    animation: animate 17s linear infinite;
+    animation-delay: 14s;
+    
+}
+
+@keyframes animate{
     0%{
-        left:-100%;
-        opacity: 0;
+        transform: translateY(0) rotate(0deg);
     }
-    70%{
-        opacity: 0;
-    }
+
     100%{
-        left:14%;
-        opacity: 1;
-     }
+        transform: translateY(-1350px) rotate(720deg);
+    }
 }
 /* End of Header */
 

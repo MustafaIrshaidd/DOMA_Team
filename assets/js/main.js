@@ -60,6 +60,9 @@ login.addEventListener('click',function(){
 
 
 
+
+
+
 //Gallery
 ScrollReveal({
     reset: false,
