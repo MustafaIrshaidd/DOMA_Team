@@ -228,39 +228,37 @@ header .content h3{
 header .content img{
     opacity: 1;
     z-index:-1;
-   
     transform: scale(1.1);
-    
 }
 header .content .red{
     width:5%;
     bottom:-100px;
     right:500px;
-    animation: animate 15s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:5s;
     
 }
 header .content .blue{
     width:5%;
-    bottom:-200px;
+    bottom:-100px;
     left:500px;
-    animation: animate 15s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:2s;
     
 }
 header .content .yellow{
-    width:5%;
-    bottom:-400px;
+    width:6%;
+    bottom:-120px;
     left:50px;
-    animation: animate 12s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:5s;
     
 }
 header .content .green{
-    width:5%;
-    bottom:-400px;
+    width:7%;
+    bottom:-130px;
     right:100px;
-    animation: animate 15s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:7s;
     
 }
@@ -269,31 +267,31 @@ header .content .red1{
     width:3%;
     bottom:-100px;
     right:300px;
-    animation: animate 17s linear infinite;
+    animation: animate 4s linear infinite;
     animation-delay: 3s;
     
 }
 header .content .blue1{
     width:3%;
-    bottom:-200px;
+    bottom:-100px;
     left:400px;
-    animation: animate 17s linear infinite;
+    animation: animate 5s linear infinite;
     animation-delay: 10s;
     
 }
 header .content .yellow1{
     width:3%;
-    bottom:-400px;
+    bottom:-100px;
     left:600px;
-    animation: animate 17s linear infinite;
+    animation: animate 3s linear infinite;
     animation-delay: 12s;
     
 }
 header .content .green1{
     width:3%;
-    bottom:-400px;
+    bottom:-100px;
     right:600px;
-    animation: animate 17s linear infinite;
+    animation: animate8s linear infinite;
     animation-delay: 14s;
     
 }
@@ -304,7 +302,8 @@ header .content .green1{
     }
 
     100%{
-        transform: translateY(-1350px) rotate(720deg);
+        transform: translateY(-500px) rotate(720deg);
+        opacity: 0;
     }
 }
 /* End of Header */
