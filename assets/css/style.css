@@ -11,10 +11,35 @@
     box-sizing: border-box;
     
 }
+html{
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 body{
     font-family: Regular;
+    overflow: hidden;
 }
+
+/* custom scrollbar */
+
+body::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+body::-webkit-scrollbar-track {
+    margin-block: 0.1em;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background: var(--yellow);
+    border-radius: 100vw;
+  }
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: #efb50b;
+  }
 
 :root{
     --red:#ee4038;
@@ -214,6 +239,7 @@ header{
     position: relative;
     z-index:1;
 }
+
 header .content{
     height: inherit;
     z-index:3;
