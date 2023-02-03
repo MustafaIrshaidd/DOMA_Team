@@ -254,39 +254,37 @@ header .content h3{
 header .content img{
     opacity: 1;
     z-index:-1;
-   
     transform: scale(1.1);
-    
 }
 header .content .red{
     width:5%;
     bottom:-100px;
     right:500px;
-    animation: animate 15s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:5s;
     
 }
 header .content .blue{
     width:5%;
-    bottom:-200px;
+    bottom:-100px;
     left:500px;
-    animation: animate 15s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:2s;
     
 }
 header .content .yellow{
-    width:5%;
-    bottom:-400px;
+    width:6%;
+    bottom:-120px;
     left:50px;
-    animation: animate 12s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:5s;
     
 }
 header .content .green{
-    width:5%;
-    bottom:-400px;
+    width:7%;
+    bottom:-130px;
     right:100px;
-    animation: animate 15s ease-in-out infinite;
+    animation: animate 8s ease-in-out infinite;
     animation-delay:7s;
     
 }
@@ -295,31 +293,31 @@ header .content .red1{
     width:3%;
     bottom:-100px;
     right:300px;
-    animation: animate 17s linear infinite;
+    animation: animate 4s linear infinite;
     animation-delay: 3s;
     
 }
 header .content .blue1{
     width:3%;
-    bottom:-200px;
+    bottom:-100px;
     left:400px;
-    animation: animate 17s linear infinite;
+    animation: animate 5s linear infinite;
     animation-delay: 10s;
     
 }
 header .content .yellow1{
     width:3%;
-    bottom:-400px;
+    bottom:-100px;
     left:600px;
-    animation: animate 17s linear infinite;
+    animation: animate 3s linear infinite;
     animation-delay: 12s;
     
 }
 header .content .green1{
     width:3%;
-    bottom:-400px;
+    bottom:-100px;
     right:600px;
-    animation: animate 17s linear infinite;
+    animation: animate8s linear infinite;
     animation-delay: 14s;
     
 }
@@ -330,7 +328,8 @@ header .content .green1{
     }
 
     100%{
-        transform: translateY(-1350px) rotate(720deg);
+        transform: translateY(-500px) rotate(720deg);
+        opacity: 0;
     }
 }
 /* End of Header */
@@ -458,8 +457,9 @@ a{
 }
 .button a{
     background-color:#ee4038;
-    padding: 30px 35px;
+    padding: 30px 35px;  
 }
+
 .button i {
     color: white ;
 }
@@ -528,10 +528,8 @@ a{
 
 /* footer */
 .footer { 
-    position: relative;
     display: block;
-    background-color:#343a40;
-    height: 250px;
+    background-color: rgb(59, 113, 202);
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><path d='M100 100 V 90 L 90 100 Z' fill='white' fill-opacity='0.045'></path><path d='M100 90 V 80 L 90 90 Z' fill='white' fill-opacity='0.015'></path><path d='M90 100 V 90 L 80 100 Z' fill='white' fill-opacity='0.03'></path><path d='M90 100 V 90 H 100 Z' fill='white' fill-opacity='0.06'></path></svg>");
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -540,22 +538,31 @@ a{
 }
 
 
-.first-line , .second-line{
-    display: flex;
-    justify-content: space-between;
-}
-.social-links i {
-    color: white;
-    padding-left: 10px;
-} 
 
-.second-block a{
-   
-    font-size: 17px ;
+.third-block-p{
+    text-align: justify;
 }
-.second-block a:hover{
-    text-decoration: underline;
+.footer p,.footer h4,.footer span {
+    color: white;
 }
+.footer .icon1{
+    color: var(--yellow);
+}
+.footer .icon2{
+    color: var(--red);
+}
+.footer .icon3{
+    color: var(--green);
+}
+
+.copyright-footer {
+    background-color: rgba(59, 114, 202, 0.842);
+}
+.copyright-box{
+    display: flex;
+    justify-content: space-around;
+}
+
 
 /* start features section */
 .features{
