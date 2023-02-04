@@ -431,8 +431,9 @@ a{
 }
 .button a{
     background-color:#ee4038;
-    padding: 30px 35px;
+    padding: 30px 35px;  
 }
+
 .button i {
     color: white ;
 }
@@ -535,6 +536,8 @@ a{
     display: flex;
     justify-content: space-around;
 }
+
+
 /* start features section */
 .features{
     background-color:f5b5b5;
