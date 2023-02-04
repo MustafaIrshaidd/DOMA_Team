@@ -54,12 +54,6 @@ login.addEventListener('click',function(){
     window.location.href="login.html";
 })
 
-
-
-
-
-
-
 //Gallery
 ScrollReveal({
     reset: false,
@@ -73,7 +67,9 @@ ScrollReveal().reveal('.interested .cardC', { delay: 400, origin:'bottom'});
 ScrollReveal().reveal('.interested .cardR', { delay: 400, origin:'right'});
 
 //features
-ScrollReveal().reveal('.features .feature1', { delay: 100, origin:'left'});
-ScrollReveal().reveal('.features .feature2', { delay: 200, origin:'left'});
-ScrollReveal().reveal('.features .feature3', { delay: 300, origin:'left'});
-ScrollReveal().reveal('.features .feature4', { delay: 400, origin:'left'});
+ScrollReveal().reveal('.features .feature1', { delay: 100, origin:'right'});
+ScrollReveal().reveal('.features .feature2', { delay: 100, origin:'top'});
+ScrollReveal().reveal('.features .feature5', { delay: 100, origin:'bottom'});
+ScrollReveal().reveal('.features .feature3', { delay: 200, origin:'left'});
+ScrollReveal().reveal('.features .feature6', { delay: 300, origin:'left'});
+ScrollReveal().reveal('.features .feature4', { delay: 400, origin:'right'});
