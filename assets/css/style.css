@@ -139,7 +139,7 @@ body{
 
 /* Start Nav */
 .navbar{
-    background-color: transparent !important;
+    background-color: #fbfbfd !important;
 }
 .navbar .container .navbar-brand img{
     transition:all 0.25s;
@@ -223,8 +223,6 @@ header .content h3{
     width:35%;
     
 }
-
-
 header .content img{
     opacity: 1;
     z-index:-1;
