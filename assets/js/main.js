@@ -60,9 +60,6 @@ login.addEventListener('click',function(){
 
 
 
-
-
-
 //Gallery
 ScrollReveal({
     reset: false,
@@ -74,3 +71,15 @@ ScrollReveal().reveal('.gallery .gallery-title,.interested .interested-title', {
 ScrollReveal().reveal('.interested .cardL', { delay: 400, origin:'left'});
 ScrollReveal().reveal('.interested .cardC', { delay: 400, origin:'bottom'});
 ScrollReveal().reveal('.interested .cardR', { delay: 400, origin:'right'});
+
+//features
+ScrollReveal().reveal('.features .feature1', { delay: 100, origin:'right'});
+ScrollReveal().reveal('.features .feature2', { delay: 100, origin:'top'});
+ScrollReveal().reveal('.features .feature5', { delay: 100, origin:'bottom'});
+ScrollReveal().reveal('.features .feature3', { delay: 200, origin:'left'});
+ScrollReveal().reveal('.features .feature6', { delay: 300, origin:'left'});
+ScrollReveal().reveal('.features .feature4', { delay: 400, origin:'right'});
+
+//contact
+ScrollReveal().reveal('.contact h3', { delay: 200, origin:'left'});
+ScrollReveal().reveal('.contact p', { delay: 200, origin:'left'});
