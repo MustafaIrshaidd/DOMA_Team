@@ -73,3 +73,7 @@ ScrollReveal().reveal('.features .feature5', { delay: 100, origin:'bottom'});
 ScrollReveal().reveal('.features .feature3', { delay: 200, origin:'left'});
 ScrollReveal().reveal('.features .feature6', { delay: 300, origin:'left'});
 ScrollReveal().reveal('.features .feature4', { delay: 400, origin:'right'});
+
+//contact
+ScrollReveal().reveal('.contact h3', { delay: 200, origin:'left'});
+ScrollReveal().reveal('.contact p', { delay: 200, origin:'left'});
