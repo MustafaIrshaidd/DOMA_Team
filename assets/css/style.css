@@ -26,20 +26,20 @@ body{
 body::-webkit-scrollbar {
     width: 0.5em;
     height: 0.5em;
-  }
+}
   
 body::-webkit-scrollbar-track {
     margin-block: 0.1em;
-  }
+}
   
 body::-webkit-scrollbar-thumb {
-    background: var(--yellow);
+    background: var(--blue);
     border-radius: 100vw;
-  }
+}
   
 body::-webkit-scrollbar-thumb:hover {
-    background: #efb50b;
-  }
+    background: var(--blue);
+}
 
 :root{
     --red:#ee4038;
@@ -164,7 +164,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Start Nav */
 .navbar{
-    background-color: transparent !important;
+    background-color: #fbfbfd !important;
 }
 .navbar .container .navbar-brand img{
     transition:all 0.25s;
@@ -239,24 +239,30 @@ header{
     position: relative;
     z-index:1;
 }
+header .overlay .content{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-header .content{
+header .overlay{
     height: inherit;
     z-index:3;
 }
 
-header .content h3{
+header .overlay h3{
     width:35%;
     
 }
-
-
-header .content img{
+header .overlay img{
     opacity: 1;
     z-index:-1;
     transform: scale(1.1);
 }
-header .content .red{
+header .overlay .red{
     width:5%;
     bottom:-100px;
     right:500px;
@@ -264,23 +270,23 @@ header .content .red{
     animation-delay:5s;
     
 }
-header .content .blue{
+header .overlay .blue{
     width:5%;
     bottom:-100px;
     left:500px;
     animation: animate 8s ease-in-out infinite;
-    animation-delay:2s;
+    animation-delay:8s;
     
 }
-header .content .yellow{
+header .overlay .yellow{
     width:6%;
     bottom:-120px;
     left:50px;
     animation: animate 8s ease-in-out infinite;
-    animation-delay:5s;
+    animation-delay:8s;
     
 }
-header .content .green{
+header .overlay .green{
     width:7%;
     bottom:-130px;
     right:100px;
@@ -289,7 +295,7 @@ header .content .green{
     
 }
 
-header .content .red1{
+header .overlay .red1{
     width:3%;
     bottom:-100px;
     right:300px;
@@ -297,7 +303,7 @@ header .content .red1{
     animation-delay: 3s;
     
 }
-header .content .blue1{
+header .overlay .blue1{
     width:3%;
     bottom:-100px;
     left:400px;
@@ -305,7 +311,7 @@ header .content .blue1{
     animation-delay: 10s;
     
 }
-header .content .yellow1{
+header .overlay .yellow1{
     width:3%;
     bottom:-100px;
     left:600px;
@@ -313,7 +319,7 @@ header .content .yellow1{
     animation-delay: 12s;
     
 }
-header .content .green1{
+header .overlay .green1{
     width:3%;
     bottom:-100px;
     right:600px;
@@ -328,8 +334,9 @@ header .content .green1{
     }
 
     100%{
-        transform: translateY(-500px) rotate(720deg);
+        transform: translateY(-700px) rotate(720deg);
         opacity: 0;
+        
     }
 }
 /* End of Header */
