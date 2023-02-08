@@ -33,7 +33,7 @@ body::-webkit-scrollbar-track {
 }
   
 body::-webkit-scrollbar-thumb {
-    background: var(--blue);
+    background: #d3d3d3;
     border-radius: 100vw;
 }
   
@@ -791,6 +791,7 @@ a{
 }
 .contact .heading{
     position: relative;
+    width:-moz-fit-content;
     width: fit-content;
 }
 
