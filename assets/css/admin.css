@@ -1,5 +1,14 @@
+/* public */
+
+@font-face {
+  font-family: 'Regular';
+  src: url('/vendor/fonts/hana.ttf');
+}
+
+
 body {
     background-color: #fbfbfb;
+    font-family: Regular;
   }
   @media (min-width: 991.98px) {
     main {
@@ -37,3 +46,53 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
+
+
+  /* Events */
+
+  .card-events{
+    height: 400px;
+    border-radius: 40px !important;
+    transition: all 0.4s;
+  }
+
+  .card-events .container{
+    width:90% !important;
+  }
+  .card-events .container img{
+    height: 36px !important;
+    width: 60px !important;
+    transition: all 0.4s;
+  }
+  .card-events .container button{
+    background-color: #f4f7ff;
+    color: #316bff;
+    font-size: 0.9rem;
+    height: 50px !important;
+    width: 120px !important;
+    transition: all 0.4s;
+  }
+  .card-events .container .content h2{
+    transition: color 0.8s;
+  }
+
+  .card-events .container img:hover{
+    transform: scale(1.2);
+  }
+
+  .card-events .container .content:hover h2{
+    color: #316bff;
+  }
+
+  .card-events .container button:hover{
+    background-color: #316bff;
+    color:white;
+    transform: scale(0.95);
+  }
+
+
+  .card-events:hover{
+    box-shadow:none;
+    transform: scale(0.95);
+  }
+
