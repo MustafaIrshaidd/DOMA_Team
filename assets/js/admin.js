@@ -5,8 +5,6 @@ let mainContent=document.getElementById("mainContent")
 let eventSearch
 let eCards
 
-
-
 let events=[]
 
 window.onload = ()=>{
