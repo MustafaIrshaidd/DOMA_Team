@@ -1,0 +1,243 @@
+
+/* public */
+
+@font-face {
+    font-family: 'Regular';
+    src: url('/vendor/fonts/hana.ttf');
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+html{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    font-family: Regular;
+    overflow: hidden;
+}
+
+/* custom scrollbar */
+
+body::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+body::-webkit-scrollbar-track {
+    margin-block: 0.1em;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background: var(--yellow);
+    border-radius: 100vw;
+  }
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: #efb50b;
+  }
+
+:root{
+    --red:#ee4038;
+    --green:#34a855;
+    --yellow:#fbbd06;
+    --blue:#4384f6;
+    --white:#fff;
+}
+
+.container{
+    width:80%
+}
+
+::selection{
+    background-color: transparent;
+    color:var(--blue);
+}
+
+/* Start Loader Screen */
+.loader{
+    height: 100vh;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99999;
+    background-color: var(--white);
+}
+.loader2 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loader2 .load {
+    width: 100%;
+    height: 100%;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    animation: rotate 5s linear infinite;
+  }
+  
+  .loader2 .load-outer {
+    border-top-color: var(--blue);
+    border-bottom-color: var(--red);
+  }
+  
+  .loader2 .load-inner {
+    border-top-color: var(--green);
+    border-bottom-color: var(--yellow);
+    animation-duration: 4s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: scale(1) rotate(360deg);
+    }
+    50% {
+      transform: scale(0.5) rotate(-360deg);
+    }
+  }
+
+/* Start Fixed Social Media Icons */
+.social_fixed{
+    z-index:-1;
+    bottom:5%;
+    right:1%;
+    z-index: 9999;
+}
+.social_fixed .social_link a{
+    transition: all 0.5s;  
+}
+.social_fixed .social_link a i{
+    display: block;
+}
+
+.social_fixed .social_link:nth-child(1) a{
+    background-color: var(--white);
+    border-color:var(--blue) !important;
+    color:var(--blue) !important;
+}
+.social_fixed .social_link:nth-child(2) a{
+    background-color: var(--white);
+    border-color:var(--red) !important;
+    color:var(--red) !important;
+    
+}
+.social_fixed .social_link:nth-child(3) a{
+    background-color: var(--white);
+    border-color:var(--yellow) !important;
+    color:var(--yellow) !important;
+    
+}
+.social_fixed .social_link:nth-child(4) a{
+    background-color: var(--white);
+    border-color:var(--green) !important;
+    color:var(--green) !important;
+    
+}
+
+.social_fixed .social_link:nth-child(1) a:hover{
+    background-color: var(--blue);
+    color:white !important;
+    transform: rotate(360deg);
+}
+.social_fixed .social_link:nth-child(2) a:hover{
+    background-color: var(--red);
+    color:white !important;
+    transform: rotate(360deg);
+}
+.social_fixed .social_link:nth-child(3) a:hover{
+    background-color: var(--yellow);
+    color:white !important;
+    transform: rotate(360deg);
+}
+.social_fixed .social_link:nth-child(4) a:hover{
+    background-color: var(--green);
+    color:white !important;
+    transform: rotate(360deg);
+}
+/* End Fixed Social Media Icons */
+
+/* Start Nav */
+.navbar{
+    background-color: transparent !important;
+}
+.navbar .container .navbar-brand img{
+    transition:all 0.25s;
+    transform: scale(1.05);
+}
+.navbar .container .navbar-brand:hover img{
+    transform: scale(0.95);
+}
+
+.navbar-expand-lg{
+    position: fixed !important;
+    z-index: 10;
+    right:0;
+    left:0;
+    background-color: white;
+    padding:0;
+}
+nav button{
+    transition: all 1s;
+}
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row-reverse;
+}
+nav button:hover{
+    border: 1px solid !important;
+    border-bottom-color: var(--red) !important;
+    border-top-color: var(--blue) !important;
+    border-right-color: var(--green) !important;
+    border-left-color: var(--yellow) !important;
+}
+nav .nav-item{
+    border-bottom:2px solid transparent;
+    transition: all 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+nav .nav-item::after{
+    content:'';
+    position: absolute;
+    background-color:var(--blue);
+    bottom:0;
+    left:0;
+    right:0;
+    height: 3px;
+    transform: scaleX(0);
+    transition: all 0.7s;
+    z-index:11;
+}
+nav .nav-item:hover::after{
+    transform: scaleX(1);
+}
+nav .nav-item:hover > a{
+    color:var(--blue) !important;
+}
+nav .active > a{
+    color:var(--blue) !important;
+}
+nav .active::after{
+    transform: scaleX(1);
+}
+nav .navbar-brand img{
+    width:100px;
+}
+/* End Nav */
+/* start Activities section */
+.activities{
+    
+    background-color: #fbfbfd !important;
+    
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    z-index:1;
+}
+/* end Activities section */
