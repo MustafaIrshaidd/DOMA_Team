@@ -871,3 +871,111 @@ box-shadow: none;
 .collaboration h2{
     font-weight: 600;
 }
+
+/* cards CSS */
+.cards-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cards h2{
+    color: #1A2447;
+    font: 64px;
+    margin: 0 0 18px;
+    text-align: center;
+}
+.card-title {
+    color: #5e5f79;
+    font-size: 18px;
+    
+    text-align: center;
+}
+.single-card {
+    width: 386px;
+    height: 600px;
+    padding: 33px 32px;
+    box-shadow: 0 8px 30px 0 rgb(50 53 130 / 8%);
+    border-radius: 28px;
+    border-width: 2px;
+    border-color: hsla(223.63636363636368, 100.00%, 97.84%, 1.00);
+    margin: 5% 0;
+}
+.card-top p{
+    color: #5e5f79;
+    font-size: 22px;
+}
+.card-top h2{
+    color: #1A2447;
+    font-size: 42px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    text-align: right;
+    
+}
+.card-top img{
+    margin-bottom: 25px;
+}
+.card-options-flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.card-options-flex p {
+    margin: 12px;
+    color: #5e5f79;
+    font-size: 16px;
+}
+.card-bottom span {
+    color: #1A2447;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+.cards-button{
+    width: 318px;
+    height: 56px;
+    padding: 18px 28px;
+    border: 1px solid #c0c1d1;
+    border-radius: 4px;
+    background-color: transparent;
+    margin-top: 20px;
+}
+.cards-button:hover {
+    background-color: #316BFF;
+    color: white;
+    
+}
+
+
+/* end of cards css */
+
+/* cards complete purchase  */
+
+.left-side {
+    width: 43%;
+}
+.right-side {
+    width: 43%;
+}
+.purchase-container {
+    display: flex;
+
+}
+.right-side{
+    width: 513px;
+    height: 566px;
+    background-color: white;
+    padding: 50px 32px;
+    box-shadow: 0 8px 30px 0 rgba(50, 53, 130, 0.08);
+}
+.quanbox input{
+    width: 86px;
+    height: 58px;
+    padding: 17px;
+    margin-left: 21px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* end of cards purchase */
+
