@@ -356,6 +356,7 @@ nav .navbar-brand img{
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: white;
+    transition: all 0.4s;
     /* display: none; */
     
 }
@@ -369,19 +370,20 @@ nav .navbar-brand img{
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: white;
+    transition: all 0.4s;
     /* display: none; */
     
 }
 .activities .item:hover{
     transform: scale(0.97);
-    transition: all 1s;
+    
     cursor: pointer;
     /* height: 100%; */
 }
 
 .activities .item2:hover{
     transform: scale(0.97);
-    transition: all 1s;
+    box-shadow: none !important;
     cursor: pointer;
     /* height: 100%; */
 }
@@ -432,13 +434,14 @@ nav .navbar-brand img{
     font-size: 20px;
     /* color: #223b8c; */
     font-weight: 400;
-   color:#4384f6;
-   border-color:#4384f6;
-   background-color: white;
+    color:#4384f6;
+    border-color:#4384f6;
+    background-color: white;
+    transition: all 0.4s;
+    
 }
 .book .content button:hover{
     cursor: pointer;
-    
     color: #4384f6;
     border-color: #4384f6;
     transition: transform 2s;
