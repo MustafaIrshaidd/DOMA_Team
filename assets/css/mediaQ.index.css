@@ -37,6 +37,7 @@
     .carousel-control-next-icon, .carousel-control-prev-icon {
         display: none !important;
     }
+    /*  */
     
 }
 
@@ -53,5 +54,13 @@
     .gallery .carousel-indicators button img{
         height: 3rem !important;
     } 
+    /* cards */
+    .cards-container{
+        flex-direction: column;
+    }
+    .single-card {
+        width: 100%;
+
+    }
     
 }
