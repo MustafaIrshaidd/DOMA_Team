@@ -46,21 +46,16 @@
         <div class="container profile-container h-100 d-flex flex-column flex-md-row text-center justify-content-between align-items-center">
             <!-- avatar -->
             <div class="card avatar-container avatar-card w-25 h-50 align-items-center rounded-9 me-2 me-lg-5 px-5 px-lg-0 " >
-                <div class="avatar mt-lg-4 h-50 d-flex align-items-center px-mg-0 px-2 ">
-                    <img src="assets/images/profile/avatar2.png" class="rounded-circle img-fluid position-relative" alt="..." />
-                    <div class="pic d-none">
-                        <label class="form-label text-white rounded-circle bg-white" for="customFile1"><i class="fa-solid fa-camera"></i></label>
-                        <input type="file" class="form-control d-none" id="customFile1" />
+                <div class="avatar h-100 d-flex flex-column align-items-center justify-content-center">
+                    <div class="img-container position-relative">
+                        <img src="assets/images/profile/avatar2.png" id="output2" class="rounded-circle img-fluid" />
+                    <label class="-label d-flex justify-content-center align-items-center rounded-circle position-absolute" for="file2">
+                      <span>تغيير الصورة</span>
+                    </label>
+                    <input id="file2" type="file" onchange="loadFile2(event)"/>
                     </div>
-                </div>
-                <div class="card-body h-100 d-flex align-items-center">
-                    <div class="button">
-                        <div class="btn btn-primary btn-rounded">
-                            <label class="form-label text-white" for="customFile2">تعديل الصورة الشخصية</label>
-                            <input type="file" class="form-control d-none" id="customFile2" />
-                        </div>
-                    </div>
-                </div>
+                    <label class="form-label h-25 d-flex align-items-center text-primary">تعديل الصورة الشخصية</label>
+                  </div>
             </div>
             <!-- avatar -->
             <!-- form -->
@@ -73,23 +68,19 @@
                             </a>
                             <i class="fa fa-long-arrow-left mr-1 mb-1"></i>
                         </div>
+                        <!-- form avatar -->
                         <div class="avatar-container avatar-form align-items-center rounded-9 me-2 me-lg-5 px-md-5 px-lg-0  position-relative d-none" >
-                            <div class="avatar mt-lg-4 h-50 d-flex align-items-center  justify-content-center  px-mg-0 px-2">
-                                <img src="assets/images/profile/avatar2.png" class="rounded-circle img-fluid" alt="..." />
-                                <div class="pic d-none">
-                                    <label class="form-label text-white rounded-circle bg-white" for="customFile3"><i class="fa-solid fa-camera"></i></label>
-                                    <input type="file" class="form-control d-none" id="customFile3" />
+                            <div class="avatar h-100 d-flex flex-column align-items-center justify-content-center">
+                                <div class="img-container position-relative">
+                                    <img src="assets/images/profile/avatar2.png" id="output" class="rounded-circle " />
+                                <label class="-label d-flex justify-content-center align-items-center rounded-circle position-absolute" for="file">
+                                  <span>تغيير الصورة</span>
+                                </label>
+                                <input id="file" type="file" onchange="loadFile(event)"/>
                                 </div>
-                            </div>
-                            <div class="card-body h-100 d-flex align-items-center">
-                                <div class="button">
-                                    <div class="btn btn-primary btn-rounded">
-                                        <label class="form-label text-white" for="customFile4">تعديل الصورة الشخصية</label>
-                                        <input type="file" class="form-control d-none" id="customFile4" />
-                                    </div>
-                                </div>
-                            </div>
+                              </div>
                         </div>
+                        <!-- form avatar -->
                         <h5 class="text-right text-primary">تعديل الملف الشخصي</h5>
                     </div>
                     <div class="col-md-6">
@@ -168,6 +159,6 @@
     <!-- MDB JS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
     <!-- Custom JS -->
-    <script src="assets/js/login.js"></script>
+    <script src="assets/js/profile.js"></script>
 </body>
 </html>

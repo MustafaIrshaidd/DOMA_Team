@@ -80,33 +80,9 @@ body{
 .profile{
     height: 83vh;
 }
-.profile .avatar-card .avatar .pic{
-    position: absolute;
-    bottom: 45px !important;
-    right: 19px !important;
-}
-.profile .card-form .avatar-container .avatar .pic{
-    position: absolute;
-    bottom: -32px;
-    right: 42px;
-}
-.profile .avatar-container .avatar .pic .form-label:hover{
-    cursor: pointer;
-}
-.profile .avatar-container .avatar .pic .form-label{
-    width: 30px;
-    height: 30px;
-    line-height: 32px;  
-    background-color: var(--blue) !important;
-}
 .profile .profile-container .avatar{
     width: 10rem;
-}
-.profile .profile-container .btn .form-label{
-    margin: 0 !important;
-}
-.profile .profile-container .btn .form-label:hover {
-    cursor: pointer;
+    height: 10rem;
 }
 .profile .profile-container .card .back a,.profile .profile-container .card .back i{
     transition: .3s;
@@ -123,12 +99,53 @@ body{
 .profile .profile-container .card .from .save{
     width: 10rem !important;
 }
-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right:0;
-}
+  
+
+  .avatar {
+    color: transparent;
+    transition: all .3s ease;
+    position: relative;
+    transition: all .3s ease;
+  }
+    .avatar input {
+      display: none;
+    }
+    
+    .card-form .avatar-container .avatar .image-container {
+      width: 10rem;
+      height: 10rem;
+      box-shadow: 0 0 10px 0 rgba(255,255,255,.35);
+      z-index: 0;
+    }
+    
+    .avatar img{
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .avatar .-label {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+    
+    .avatar .-label:hover {
+        background-color: rgba(0,0,0,.8);
+        z-index: 1000000;
+        color: rgb(250,250,250);
+        transition: background-color .2s ease-in-out;
+    }
+    footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right:0;
+    }
+    
 @media (max-width:991px) {
     .profile .container{
         max-width: 90% !important;
@@ -136,32 +153,15 @@ footer{
     .profile .form-card{
         width: 100% !important;
     }
-    .profile .avatar-container{
-        height: 40% !important;
-    }
-    .profile .avatar-container .avatar{
-        height: 100% !important;
-    }
     .profile .avatar-container .card-body{
         height: 0 !important;
         padding: 0 !important;
-    }
-    .profile .avatar-container .btn{
-        display: none;
-    }
-    .profile .avatar-container .avatar .pic{
-        display: block !important;
     }
     .card{
         font-size: .9rem !important;
     }
     .form-title h5,.form-title h6{
         font-size: .9rem !important;
-    }
-    .profile .card-form .avatar-container .pic{
-        position: absolute;
-        bottom: -30px !important;
-        right: 60px !important;
     }
     .avatar-card{
         display: none !important;
@@ -179,12 +179,17 @@ footer{
     .container{
         width: 100% !important;
         padding-inline:0 !important ;
-    }    
-    .profile .avatar-container .avatar .pic .form-label{
-        font-size: .7rem !important;
-        width: 25px;
-        height: 25px;
-        line-height: 27px;
+    }  
+    
+    .profile .profile-container .avatar {
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    .avatar img{
+        width: 8rem;
+        height: 8rem;
+        object-fit: cover;
     }
 }
 @media (max-width: 768px) {
@@ -201,37 +206,25 @@ footer{
         border-radius: 0!important;
         position: unset!important;
     }
-    .profile .avatar-container .avatar .img-fluid{
-        max-width: 70% !important;
+    .profile .profile-container .avatar {
+        width: 6rem !important;
+        height: 6rem !important;;
     }
-    .profile .card-form .avatar-container .pic{
-        position: absolute;
-        bottom: -30px !important;
-        right: 35px !important;
+    .avatar .image-container{
+        width: 6rem !important;
+        height: 6rem !important;
+    }  
+    .avatar-container{        
+        margin-left: 0 !important;
+        margin-right: .5rem!important;
+    }
+    .avatar img{
+        width: 6rem;
+        height: 6rem;
+        object-fit: cover;
     }
 }
 @media (max-width:551px) {
-    footer{
-        font-size: .7rem !important;
-    }
-    .card-form{
-        height: 100% !important;
-    }
-    .card{
-        background-color: var(--gray) !important;
-        flex-direction: unset !important;
-        box-shadow: none !important;
-        border-radius: 0!important;
-        position: unset!important;
-    }
-    .profile .avatar-container .avatar .img-fluid{
-        max-width: 70% !important;
-    }
-    .profile .card-form .avatar-container .pic{
-        position: absolute;
-        bottom: -30px !important;
-        right: 35px !important;
-    }
     footer{
         display: none !important;
     }

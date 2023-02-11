@@ -19,6 +19,7 @@ html{
 body{
     font-family: Regular;
     overflow: hidden;
+    background-color: var(--gray);
 }
 
 /* custom scrollbar */
@@ -47,6 +48,7 @@ body::-webkit-scrollbar-thumb:hover {
     --yellow:#fbbd06;
     --blue:#4384f6;
     --white:#fff;
+    --gray:#fbfbfd;
 }
 
 .container{
@@ -810,7 +812,6 @@ display: inline-block;
 }
 
 .contact{
-background-color: white;
 color: black;
 }
 .contact::after{

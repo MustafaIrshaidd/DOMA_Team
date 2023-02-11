@@ -50,21 +50,21 @@ body {
 
   /* Events */
 
-  .card-events{
+  .card-events,.card-users{
     height: 400px;
     border-radius: 40px !important;
     transition: all 0.4s;
   }
 
-  .card-events .container{
+  .card-events .container,.card-users .container{
     width:90% !important;
   }
-  .card-events .container img{
+  .card-events .container img,.card-users .container img{
     height: 36px !important;
     width: 60px !important;
     transition: all 0.4s;
   }
-  .card-events .container button{
+  .card-events .container button,.card-users .container button{
     background-color: #f4f7ff;
     color: #316bff;
     font-size: 0.9rem;
@@ -72,27 +72,103 @@ body {
     width: 120px !important;
     transition: all 0.4s;
   }
-  .card-events .container .content h2{
+  .card-events .container .content h2,.card-users .container .content h2{
     transition: color 0.8s;
   }
 
   .card-events .container img:hover{
     transform: scale(1.2);
+    cursor: pointer;
   }
 
-  .card-events .container .content:hover h2{
+  .card-events .container .content:hover h2,.card-users .container .content:hover h2{
     color: #316bff;
   }
 
-  .card-events .container button:hover{
+  .card-events .container button:hover,.card-users .container button:hover{
     background-color: #316bff;
     color:white;
     transform: scale(0.95);
   }
 
 
-  .card-events:hover{
+  .card-events:hover,.card-users:hover{
     box-shadow:none;
     transform: scale(0.95);
   }
+
+  /* users */
+  
+  .card-users .container  img {
+    height: 10rem !important;
+    width: 10rem !important;
+}
+  .user .updateDelete i{
+    cursor: pointer;
+    width: 35px !important;
+    height: 35px !important;
+    line-height: 32px;
+    transition: all 0.4s;
+  }
+  .user .updateDelete i:hover{
+    
+    transform: scale(1.2);
+  }
+
+  .avatar {
+    color: transparent;
+    transition: all .3s ease;
+    position: relative;
+    transition: all .3s ease;
+  }
+    .avatar input {
+      display: none;
+    }
+    
+    .card-form .avatar-container .avatar .image-container {
+      width: 10rem;
+      height: 10rem;
+      box-shadow: 0 0 10px 0 rgba(255,255,255,.35);
+      z-index: 0;
+    }
+    
+    .avatar img{
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .avatar .-label {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+    
+    .avatar .-label:hover {
+        background-color: rgba(0,0,0,.8);
+        z-index: 1000000;
+        color: rgb(250,250,250);
+        transition: background-color .2s ease-in-out;
+    }
+    
+  /* users media*/
+  @media (max-width: 768px) {
+ 
+    .card .user-info{
+      height: 30%;
+    }
+    .card .user-info h5{
+      width: fit-content;
+    }
+  }
+  @media (max-width: 576px) {
+    .card-events .container{
+      width: 90% !important;
+    } 
+  }
+
+
 
