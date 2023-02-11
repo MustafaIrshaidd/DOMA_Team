@@ -358,10 +358,8 @@ nav .navbar-brand img{
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: white;
-    transition: all 1s;
-    padding-top: 40px;
-    padding-bottom: 25px;
-    /* display: none; */  
+    /* display: none; */
+    
 }
 .activities .item2{
     background-color: white;
@@ -372,24 +370,18 @@ nav .navbar-brand img{
     padding-bottom: 10px;
     padding-top: 10px;
     background-color: white;
-    transition: all 1s;
-    padding-top: 40px;
-    padding-bottom: 25px;
     /* display: none; */
     
 }
 .activities .item:hover{
     transform: scale(0.97);
-    cursor: pointer;  
-}
-.activities .item:hover h2{
-    color: #4384f6;
-}
-.activities .item2:hover h2{
-    color: #4384f6;
+    transition: all 1s;
+    cursor: pointer;
+    /* height: 100%; */
 }
 .activities .item2:hover{
     transform: scale(0.97);
+    transition: all 1s;
     cursor: pointer;
 }
 .activities .item h2{
@@ -472,7 +464,6 @@ nav .navbar-brand img{
    color:#4384f6;
    border-color:#4384f6;
    background-color: white;
-   transition: transform 2s;
 }
 .book .content button:hover{
     cursor: pointer;
