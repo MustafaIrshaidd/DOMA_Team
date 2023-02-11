@@ -781,29 +781,12 @@ a{
     }
 }
 /* start contact section  */
-.view{
-    width: 60px;
-    color:white;
-    background-color: #fbbd06;
-    height: 120%;
-    display: inline-block;
-    border-radius: 50rem 0 0 50rem;
-}
+
 .contact .heading{
     position: relative;
     width: fit-content;
 }
 
-.heading>span{
-    position:absolute;
-    top:-30px;
-    left:-30px;
-    color:#818181;
-    border-bottom: 2px solid #4384f6 !important;
-    
-    font-weight: 500px;
-    font-size: 18px;
-}
 .contact a{
 display: inline-block;
 }
@@ -811,6 +794,11 @@ display: inline-block;
 .contact{
 background-color: #fbfbfd !important;
 color: black;
+}
+.contact h2{
+    font-size: 30px;
+    font-weight: 600;
+    color:black;
 }
 .contact::after{
 content: '';
@@ -884,6 +872,7 @@ box-shadow: none;
     font: 64px;
     margin: 0 0 18px;
     text-align: center;
+    font-weight:600;
 }
 .card-title {
     color: #5e5f79;
