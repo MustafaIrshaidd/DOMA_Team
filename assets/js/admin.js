@@ -8,7 +8,7 @@ let userSearch
 let eCards
 
 
-
+let users=[];
 let events=[]
 
 window.onload = ()=>{
