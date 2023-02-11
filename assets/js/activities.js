@@ -73,8 +73,15 @@ let login = document.getElementById('login');
 
 login.addEventListener('click',function(){
     window.location.href="login.html";
-})
+});
 
+// Routing to Cards page
+let cardButton3=document.getElementById('cardButton3');
+
+cardButton3.addEventListener('click',function(e){
+    e.preventDefault();
+    window.location.href="login.html";
+});
 
 
 

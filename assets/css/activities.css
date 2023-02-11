@@ -42,12 +42,12 @@ body::-webkit-scrollbar-track {
   }
   
 body::-webkit-scrollbar-thumb {
-    background: var(--yellow);
+    background: var(--blue);
     border-radius: 100vw;
   }
   
 body::-webkit-scrollbar-thumb:hover {
-    background: #efb50b;
+    background:#4384f6;
   }
 
 :root{
@@ -359,7 +359,6 @@ nav .navbar-brand img{
     padding-top: 30px;
     background-color: white;
     /* display: none; */
-    
 }
 .activities .item2{
     background-color: white;
@@ -386,8 +385,8 @@ nav .navbar-brand img{
 }
 .activities .item h2{
     text-align: right; 
-    margin-top: 30px; 
-    font-size: 25px; 
+    padding-top: 15px; 
+    font-size: 25px;
     padding-right: 15px;
 }
 

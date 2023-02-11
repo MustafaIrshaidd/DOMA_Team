@@ -52,12 +52,26 @@ let login = document.getElementById('login');
 
 login.addEventListener('click',function(){
     window.location.href="login.html";
-})
+});
 
+// routing to cards page
 
+let cardsButton = document.getElementById("cardsButton");
+let cardsButton2 = document.getElementById("cardsButton2");
 
+if(cardsButton){
+cardsButton.addEventListener("click", function (e) {
+    e.preventDefault();
+  window.location.href = "cards.html";
+});
+}
 
-
+if(cardsButton2){
+cardsButton2.addEventListener("click", function (e) {
+    e.preventDefault();
+  window.location.href = "cards.html";
+});
+}
 
 
 //Gallery
