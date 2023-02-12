@@ -19,6 +19,8 @@
       integrity="sha384-WJUUqfoMmnfkBLne5uxXj+na/c7sesSJ32gI7GfCk4zO4GthUKhSEGyvQ839BC51"
       crossorigin="anonymous"
     />
+     <!-- MDB -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.rtl.min.css" rel="stylesheet"/>
     <!--Custom CSS -->
     <link rel="stylesheet" href="/assets/css/mediaQ.index.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -156,13 +158,19 @@
 
       <div class="right-side">
         <h2>اشترك الان</h2>
-        <span class="hours">عدد الساعات</span>
-        <select class="form-select " aria-label="Default select example">
-          <option selected class="course-hours text-muted py-3">عدد الساعات</option>
-          <option value="1">واحد</option>
-          <option value="2">اثنين</option>
-          <option value="3">ثلاث</option>
-        </select>
+        <div class="form-outline age-form">
+          <input type="number" id="typeNumber" class="form-control" />
+          <label class="form-label"  for="typeNumber">العمر</label>
+        </div>
+       <div class="date">
+        <div class="start-date">
+          <p>start date</p>
+
+        </div>
+        <div class="end-date">
+          <p>end date</p>
+        </div>
+       </div>
         <span class="right-side-money">$ 49.00 USD</span> <br>
         <span class="quantity-word">الكميه</span>
         <div class="quantity d-flex">
@@ -242,6 +250,8 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+     <!-- MDB JS -->
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 
     <!-- custom JS -->
 
