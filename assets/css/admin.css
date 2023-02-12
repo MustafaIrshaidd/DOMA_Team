@@ -54,16 +54,21 @@ body {
     border-radius: 40px !important;
     transition: all 0.4s;
   }
+  .card-users{
+    height: 350px;
+    border-radius: 40px !important;
+    transition: all 0.4s;
+  }
 
-  .card-events .container{
+  .card-events .container,.card-users .container{
     width:90% !important;
   }
-  .card-events .container img{
+  .card-events .container img,.card-users .container img{
     height: 36px !important;
     width: 60px !important;
     transition: all 0.4s;
   }
-  .card-events .container button{
+  .card-events .container button,.card-users .container button{
     background-color: #f4f7ff;
     color: #316bff;
     font-size: 0.9rem;
@@ -71,49 +76,28 @@ body {
     width: 120px !important;
     transition: all 0.4s;
   }
-  .card-events .container .content h2{
+  .card-events .container .content h2,.card-users .container .content h2{
     transition: color 0.8s;
   }
 
   .card-events .container img:hover{
     transform: scale(1.2);
+    cursor: pointer;
   }
 
-  .card-events .container .content:hover h2{
+  .card-events .container .content:hover h2,.card-users .container .content:hover h2{
     color: #316bff;
   }
 
-  .card-events .container button:hover{
+  .card-events .container button:hover,.card-users .container button:hover{
     background-color: #316bff;
     color:white;
     transform: scale(0.95);
   }
 
 
-  .card-events:hover{
+  .card-events:hover,.card-users:hover{
     box-shadow:none;
     transform: scale(0.95);
   }
 
-/* start book cards section */
-.main{
-  background-color: #fbfbfd;
-}
-
-.cards{
-  /* background-color: #fbfbfd; */
-  
-}
-.card{
-  /* display: inline; */
-  background-color: white;
-  border-radius: 10px;
-
-}
-.card .inputs .accept{
-  color:greenyellow;
-}
-.card .inputs .reject{
-  color: red;
-}
-/* start book cards section */

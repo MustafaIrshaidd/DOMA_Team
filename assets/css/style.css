@@ -19,6 +19,7 @@ html{
 body{
     font-family: Regular;
     overflow: hidden;
+    background-color: var(--gray);
 }
 
 /* custom scrollbar */
@@ -33,7 +34,7 @@ body::-webkit-scrollbar-track {
 }
   
 body::-webkit-scrollbar-thumb {
-    background: var(--blue);
+    background: #d3d3d3;
     border-radius: 100vw;
 }
   
@@ -47,6 +48,7 @@ body::-webkit-scrollbar-thumb:hover {
     --yellow:#fbbd06;
     --blue:#4384f6;
     --white:#fff;
+    --gray:#fbfbfd;
 }
 
 .container{
@@ -784,6 +786,7 @@ a{
 
 .contact .heading{
     position: relative;
+    width:-moz-fit-content;
     width: fit-content;
 }
 

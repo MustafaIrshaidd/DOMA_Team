@@ -56,16 +56,16 @@
     
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" class="form-control form-control-lg"
+                <input type="email" id="userName" class="form-control form-control-lg"
                   placeholder="" />
-                <label class="form-label" for="form3Example3"><i class="fa-regular fa-user pe-2"></i>اسم المستخدم</label>
+                <label class="form-label" for="userName"><i class="fa-regular fa-user pe-2"></i>اسم المستخدم</label>
               </div>
     
               <!-- Password input -->
               <div class="form-outline mb-3">
-                <input type="password" id="form3Example4" class="form-control form-control-lg"
+                <input type="password" id="password" class="form-control form-control-lg"
                   placeholder="" />
-                <label class="form-label" for="form3Example4"><i class="fa-solid fa-lock pe-2"></i>كلمة المرور</label>
+                <label class="form-label" for="password"><i class="fa-solid fa-lock pe-2"></i>كلمة المرور</label>
               </div>
     
               <div class="d-flex justify-content-between align-items-center">
@@ -73,17 +73,21 @@
                 <div class="form-check mb-0">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
                   <label class="form-check-label" for="form2Example3">
-                    نذكرني
+                    تذكرني
                   </label>
                 </div>
                 <a href="#!" class="text-body">هل نسيت كلمة السر؟</a>
               </div>
     
               <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="button" class="btn btn-primary btn-lg rounded-pill w-100"
-                  style="padding-left: 2.5rem; padding-right: 2.5rem;">تسجيل الدخول</button>
-                <p class="small fw-bold mt-2 pt-1 mb-0">ليس لديك حساب ؟ 
-                  <a href="signup.html" class="red">انشاء حساب</a></p>
+                <button type="button" id="loginBtn" class="btn btn-primary btn-lg rounded-pill w-100"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;" onclick="login()" >
+                  تسجيل الدخول
+                </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                  ليس لديك حساب ؟ 
+                  <a href="signup.html" class="red">انشاء حساب</a>
+                </p>
               </div>
 
               <div class="divider d-flex align-items-center my-4">

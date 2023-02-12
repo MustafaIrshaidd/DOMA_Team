@@ -2,9 +2,11 @@ let dashboardBtns=document.getElementById("dashboardBtns").getElementsByTagName(
 let dashboardBtn=document.getElementById("dashboardBtn")
 let eventsBtn=document.getElementById("eventsBtn")
 let mainContent=document.getElementById("mainContent")
+let usersBtn=document.getElementById("usersBtn");
 let eventSearch
+let userSearch
 let eCards
-let cards=document.getElementById('reservationsBtn')
+
 let events=[]
 
 window.onload = ()=>{
@@ -15,6 +17,7 @@ window.onload = ()=>{
     events=JSON.parse(localStorage.getItem('events'))
   }
 }
+
 
 dashboardBtn.addEventListener('click',function(){
     clear()
@@ -359,6 +362,300 @@ eventsBtn.addEventListener('click',function(){
     displayEvents()
     
 })
+
+/*################# Start Users section ################# */
+
+
+usersBtn.addEventListener('click',function(){
+  if(localStorage.getItem('users')==null){
+    users=[]
+  }
+  else{
+    users=JSON.parse(localStorage.getItem('users'))
+  }
+  clear();
+  usersBtn.classList.add('active');
+  var data=`
+  
+  <section>
+  <div class="row">
+    <div class="col-xl-6 col-md-12 mb-4">
+      <div class="input-group rounded mb-4">
+        <input id="userSearch" onkeyup="usersSearch()" type="search" value="" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+    <div class="col-xl-6 col-md-12 mb-4 text-center">
+      <button type="button" class="btn btn-primary w-50" onclick="addUser()">add user</button>
+    </div>
+    <div class="row" id="userCard">
+      
+    </div>
+  </div>        
+</section>
+
+    `
+
+  
+
+  mainContent.innerHTML=data;
+  userCard=document.getElementById("userCard");
+  userSearch=document.getElementById("userSearch");
+  displayUsers();
+  
+})
+
+async function addUser(){
+  const { value: formValues } = await Swal.fire({
+    title: 'تفاصيل الفعالية',
+    html:
+      `<input id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
+       <input id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
+       <input id="swal-input3" class="swal2-input w-75" placeholder="اسم المستخدم">
+       <input id="swal-input4" class="swal2-input w-75" placeholder="رقم الهاتف">
+       <input id="swal-input5" class="swal2-input w-75" placeholder="العمر">
+       <input id="swal-input6" class="swal2-input w-75" placeholder="كلمة المرور">
+       `,
+
+    focusConfirm: false,
+    preConfirm: () => {
+      return [
+        document.getElementById('swal-input1').value,
+        document.getElementById('swal-input2').value,
+        document.getElementById('swal-input3').value,
+        document.getElementById('swal-input4').value,
+        document.getElementById('swal-input5').value,
+        document.getElementById('swal-input6').value,
+      ]
+    }
+  })
+  
+  if (formValues) {
+    Swal.fire(JSON.stringify(formValues))
+  }
+
+
+
+  let user={
+    firstName:formValues[0],
+    lastName:formValues[1],
+    userName:formValues[2],
+    phone:formValues[3],
+    age:formValues[4],
+    password:formValues[5],
+    src:"assets/images/profile/avatar2.png",
+  }
+
+  
+  users.push(user);
+  localStorage.setItem('users',JSON.stringify(users));
+  displayUsers();
+
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1000
+  })
+
+}
+var loadFile = function (event,i) {
+  var image = document.getElementById(`output${i}`);
+  //image.src = URL.createObjectURL(event.target.files[0]);
+  const fr = new FileReader();
+  fr.readAsDataURL(event.target.files[0]);
+  fr.addEventListener('load', ()=>{
+    const url=fr.result;
+    image.src =url;
+    users[i].src=url;
+    let user={
+      firstName:users[i].firstName,
+      lastName:users[i].lastName,
+      userName:users[i].userName,
+      phone:users[i].phone,
+      age:users[i].age,
+      password:users[i].password,
+      src:users[i].src,
+    }
+  users[i]=user;
+  
+  localStorage.setItem('users',JSON.stringify(users));
+  })
+ 
+};
+
+function displayUsers(){
+  var data="";
+  for(var i=0;i<users.length;i++){
+    data+=`
+    <div class="col-xl-4 col-md-6 mb-4 ">
+        <div class="card card-users border">
+          <div  class="h-100 d-flex justify-content-center" >
+            <div class="card-body text-body ">
+              <div class="user container h-100">
+                  <div class="updateDelete" onclick=" usersCardsEditDelete(${i})">
+                    <i class="icon fa-solid fa-pen-to-square bg-primary text-white rounded-circle text-center"></i>
+                  </div>
+                  <div >
+                    <div class="avatar h-100 d-flex flex-column align-items-center justify-content-center">
+                        <div class="img-container position-relative">
+                            <img src=${users[i].src} id="output${i}" class="rounded-circle img-fluid" />
+                        <label class="-label d-flex justify-content-center align-items-center rounded-circle position-absolute" for="file${i}">
+                          <span>تغيير الصورة</span>
+                        </label>
+                        <input id="file${i}" type="file" onchange="loadFile(event,${i})"/>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row user-info content align-items-center justify-content-center pt-4 ">
+                    <h5 class="text-center">
+                    <span class="text-center">${users[i].firstName}</span>                          
+                    <span class="text-center">${users[i].lastName}</span>                          
+                    </h5>
+                  </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    `
+  }
+
+ 
+  userCard.innerHTML=data;
+
+  
+  
+}
+
+function usersCardsEditDelete(id){
+  Swal.fire({
+    title: 'Delete Or Update',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Update',
+    denyButtonText: `Delete`,
+  }).then (async(result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      const { value: formValues } = await Swal.fire({
+        title: 'تفاصيل الفعالية',
+        html:
+          `<input value="${users[id].firstName}" id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
+           <input value="${users[id].lastName}" id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
+           <input value="${users[id].userName}" id="swal-input3" class="swal2-input w-75" placeholder="اسم المستخدم">
+           <input value="${users[id].phone}" id="swal-input4" class="swal2-input w-75" placeholder="رقم الجوال">
+           <input value="${users[id].age}" id="swal-input5" class="swal2-input w-75" placeholder="العمر">
+           <input value="${users[id].password}" id="swal-input6" class="swal2-input w-75" placeholder="كلمة السر">
+           `,
+    
+        focusConfirm: false,
+        preConfirm: () => {
+          return [
+            document.getElementById('swal-input1').value,
+            document.getElementById('swal-input2').value,
+            document.getElementById('swal-input3').value,
+            document.getElementById('swal-input4').value,
+            document.getElementById('swal-input5').value,
+            document.getElementById('swal-input6').value,
+          ]
+        }
+      })
+      
+      if (formValues) {
+        Swal.fire(JSON.stringify(formValues))
+      }
+      var image = document.getElementById(`output${id}`);
+      let user= await{
+        firstName:formValues[0],
+        lastName:formValues[1],
+        userName:formValues[2],
+        phone:formValues[3],
+        age:formValues[4],
+        password:formValues[5],
+        src: image.src,
+      }
+      users[id]=user;      
+      localStorage.setItem('users',JSON.stringify(users));    
+      displayUsers();    
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1000
+      })
+
+    } else if (result.isDenied) {
+        users.splice(id,1);
+        localStorage.setItem("users",JSON.stringify(users));
+        displayUsers()
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'User has been deleted',
+          showConfirmButton: false,
+          timer: 1000
+        })
+    }
+  })
+
+
+}
+
+function usersSearch(){
+  let data='';
+  let searchKey=userSearch.value;
+
+  for(var i=0;i<users.length;i++){
+    
+    let fullName=users[i].firstName+" "+users[i].lastName;
+    
+    if(fullName.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())){
+      data+=`
+      <div class="col-xl-4 col-md-6 mb-4 ">
+          <div class="card card-users border">
+            <div  class="h-100 d-flex justify-content-center" >
+              <div class="card-body text-body ">
+                <div class="user container h-100">
+                    <div class="updateDelete" onclick=" usersCardsEditDelete(${i})">
+                      <i class="icon fa-solid fa-pen-to-square bg-primary text-white rounded-circle text-center"></i>
+                    </div>
+                    <div >
+                      <div class="avatar h-100 d-flex flex-column align-items-center justify-content-center">
+                          <div class="img-container position-relative">
+                              <img src=${users[i].src} id="output${i}" class="rounded-circle img-fluid" />
+                          <label class="-label d-flex justify-content-center align-items-center rounded-circle position-absolute" for="file${i}">
+                            <span>تغيير الصورة</span>
+                          </label>
+                          <input id="file${i}" type="file" onchange="loadFile(event,${i})"/>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row user-info content align-items-center justify-content-center pt-4 ">
+                    <h5 class="text-center">
+                    <span class="text-center">${users[i].firstName}</span>                          
+                    <span class="text-center">${users[i].lastName}</span>                          
+                    </h5>                         
+                    </div>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div>
+      `
+    }
+  }
+   
+    userCard.innerHTML=data;
+}
+
+/*################# End Users section ################# */
+
 
 function clear(){
     for(var i=0;i<dashboardBtns.length;i++){

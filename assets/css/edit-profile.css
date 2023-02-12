@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Regular';
+    src: url('/vendor/fonts/hana.ttf');
+}
+
+body{
+    font-family: Regular;
+    background: var(--gray);
+}
+
+
+:root{
+    --red:#ee4038;
+    --green:#34a855;
+    --yellow:#fbbd06;
+    --blue:#4384f6;
+    --white:#fff;
+    --gray:#fbfbfd;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+
+/* Start Loader Screen */
+.loader{
+    height: 100vh;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99999;
+    background-color: var(--white);
+}
+.loader2 {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loader2 .load {
+    width: 100%;
+    height: 100%;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    animation: rotate 5s linear infinite;
+  }
+  
+  .loader2 .load-outer {
+    border-top-color: var(--blue);
+    border-bottom-color: var(--red);
+  }
+  
+  .loader2 .load-inner {
+    border-top-color: var(--green);
+    border-bottom-color: var(--yellow);
+    animation-duration: 4s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: scale(1) rotate(360deg);
+    }
+    50% {
+      transform: scale(0.5) rotate(-360deg);
+    }
+  }
+/* Navbar */
+.navbar .container .navbar-brand img{
+    transition:all 0.25s;
+    transform: scale(1.05);
+}
+.navbar .container .navbar-brand:hover img{
+    transform: scale(0.95);
+}
+/* profile */
+.profile{
+    height: 83vh;
+}
+.profile .profile-container .avatar{
+    width: 10rem;
+    height: 10rem;
+}
+.profile .profile-container .card .back a,.profile .profile-container .card .back i{
+    transition: .3s;
+}
+.profile .profile-container .card .back i{
+    transform: translateX(3px);
+}
+.profile .profile-container .card .back:hover a,.profile .profile-container .card .back:hover i{
+    color: var(--blue) !important;
+}
+.profile .profile-container .card .back:hover i{
+    transform: translateX(-3px);
+}
+.profile .profile-container .card .from .save{
+    width: 10rem !important;
+}
+  
+
+  .avatar {
+    color: transparent;
+    transition: all .3s ease;
+    position: relative;
+    transition: all .3s ease;
+  }
+    .avatar input {
+      display: none;
+    }
+    
+    .card-form .avatar-container .avatar .image-container {
+      width: 10rem;
+      height: 10rem;
+      box-shadow: 0 0 10px 0 rgba(255,255,255,.35);
+      z-index: 0;
+    }
+    
+    .avatar img{
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .avatar .-label {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+    
+    .avatar .-label:hover {
+        background-color: rgba(0,0,0,.8);
+        z-index: 1000000;
+        color: rgb(250,250,250);
+        transition: background-color .2s ease-in-out;
+    }
+
+    footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right:0;
+    }
+    
+@media (max-width:991px) {
+    .profile .container{
+        max-width: 90% !important;
+    }
+   
+    .profile .avatar-container .card-body{
+        height: 0 !important;
+        padding: 0 !important;
+    }
+    .card{
+        font-size: .9rem !important;
+    }
+    h5, h6{
+        font-size: .9rem !important;
+    }
+    .avatar-card{
+        display: none !important;
+    }
+    .avatar-d,.avatar-form{
+        display: flex !important;
+    }
+    .avatar-container{
+        width: unset;
+        height: unset;
+    }
+    .card-form{
+        width: 100% !important;
+    }
+    .container{
+        width: 100% !important;
+        padding-inline:0 !important ;
+    }  
+    
+    .profile .profile-container .avatar {
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    .avatar img{
+        width: 8rem;
+        height: 8rem;
+        object-fit: cover;
+    }
+    
+}
+@media (max-width: 768px) {
+    footer{
+        font-size: .7rem !important;
+    }
+    .card-form{
+        height: 100% !important;
+    }
+    .card{
+        background-color: var(--gray) !important;
+        flex-direction: unset !important;
+        box-shadow: none !important;
+        border-radius: 0!important;
+        position: unset!important;
+    }
+    .profile .card-form{
+        padding-inline: 0 !important;
+    }
+    .profile .profile-container .avatar {
+        width: 6rem !important;
+        height: 6rem !important;;
+    }
+    .avatar .image-container{
+        width: 6rem !important;
+        height: 6rem !important;
+    }  
+    .avatar-container{        
+        margin-left: 0 !important;
+    }
+    .avatar img{
+        width: 6rem;
+        height: 6rem;
+        object-fit: cover;
+    }
+   
+}
+@media (max-width:551px) {
+    footer{
+        display: none !important;
+    }
+}
