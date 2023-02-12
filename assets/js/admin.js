@@ -415,9 +415,10 @@ async function addUser(){
     html:
       `<input id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
        <input id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
-       <input id="swal-input3" class="swal2-input w-75" placeholder="رقم الجوال">
-       <input id="swal-input4" class="swal2-input w-75" placeholder="العمر">
-       <input id="swal-input5" class="swal2-input w-75" placeholder="كلمة السر">
+       <input id="swal-input3" class="swal2-input w-75" placeholder="اسم المستخدم">
+       <input id="swal-input4" class="swal2-input w-75" placeholder="رقم الهاتف">
+       <input id="swal-input5" class="swal2-input w-75" placeholder="العمر">
+       <input id="swal-input6" class="swal2-input w-75" placeholder="كلمة المرور">
        `,
 
     focusConfirm: false,
@@ -428,6 +429,7 @@ async function addUser(){
         document.getElementById('swal-input3').value,
         document.getElementById('swal-input4').value,
         document.getElementById('swal-input5').value,
+        document.getElementById('swal-input6').value,
       ]
     }
   })
@@ -440,10 +442,11 @@ async function addUser(){
 
   let user={
     firstName:formValues[0],
-    LastName:formValues[1],
-    phone:formValues[2],
-    age:formValues[3],
-    password:formValues[4],
+    lastName:formValues[1],
+    userName:formValues[2],
+    phone:formValues[3],
+    age:formValues[4],
+    password:formValues[5],
     src:"assets/images/profile/avatar2.png",
   }
 
@@ -472,7 +475,8 @@ var loadFile = function (event,i) {
     users[i].src=url;
     let user={
       firstName:users[i].firstName,
-      LastName:users[i].LastName,
+      lastName:users[i].lastName,
+      userName:users[i].userName,
       phone:users[i].phone,
       age:users[i].age,
       password:users[i].password,
@@ -509,8 +513,10 @@ function displayUsers(){
                       </div>
                   </div>
                   <div class="row user-info content align-items-center justify-content-center pt-4 ">
-                    <h5 class="text-center">${users[i].firstName}</h5>
-                    <h5 class="text-center">${users[i].LastName}</h5>                          
+                    <h5 class="text-center">
+                    <span class="text-center">${users[i].firstName}</span>                          
+                    <span class="text-center">${users[i].lastName}</span>                          
+                    </h5>
                   </div>
               </div>
             </div>
@@ -541,10 +547,11 @@ function usersCardsEditDelete(id){
         title: 'تفاصيل الفعالية',
         html:
           `<input value="${users[id].firstName}" id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
-           <input value="${users[id].LastName}" id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
-           <input value="${users[id].phone}" id="swal-input3" class="swal2-input w-75" placeholder="رقم الجوال">
-           <input value="${users[id].age}" id="swal-input4" class="swal2-input w-75" placeholder="العمر">
-           <input value="${users[id].password}" id="swal-input5" class="swal2-input w-75" placeholder="كلمة السر">
+           <input value="${users[id].lastName}" id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
+           <input value="${users[id].userName}" id="swal-input3" class="swal2-input w-75" placeholder="اسم المستخدم">
+           <input value="${users[id].phone}" id="swal-input4" class="swal2-input w-75" placeholder="رقم الجوال">
+           <input value="${users[id].age}" id="swal-input5" class="swal2-input w-75" placeholder="العمر">
+           <input value="${users[id].password}" id="swal-input6" class="swal2-input w-75" placeholder="كلمة السر">
            `,
     
         focusConfirm: false,
@@ -555,6 +562,7 @@ function usersCardsEditDelete(id){
             document.getElementById('swal-input3').value,
             document.getElementById('swal-input4').value,
             document.getElementById('swal-input5').value,
+            document.getElementById('swal-input6').value,
           ]
         }
       })
@@ -565,10 +573,11 @@ function usersCardsEditDelete(id){
       var image = document.getElementById(`output${id}`);
       let user= await{
         firstName:formValues[0],
-        LastName:formValues[1],
-        phone:formValues[2],
-        age:formValues[3],
-        password:formValues[4],
+        lastName:formValues[1],
+        userName:formValues[2],
+        phone:formValues[3],
+        age:formValues[4],
+        password:formValues[5],
         src: image.src,
       }
       users[id]=user;      
@@ -605,9 +614,10 @@ function usersSearch(){
   let searchKey=userSearch.value;
 
   for(var i=0;i<users.length;i++){
-
     
-    if(users[i].firstName.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())){
+    let fullName=users[i].firstName+" "+users[i].lastName;
+    
+    if(fullName.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())){
       data+=`
       <div class="col-xl-4 col-md-6 mb-4 ">
           <div class="card card-users border">
@@ -629,8 +639,10 @@ function usersSearch(){
                         </div>
                     </div>
                     <div class="row user-info content align-items-center justify-content-center pt-4 ">
-                      <h5 class="text-center">${users[i].firstName}</h5>
-                      <h5 class="text-center">${users[i].LastName}</h5>                          
+                    <h5 class="text-center">
+                    <span class="text-center">${users[i].firstName}</span>                          
+                    <span class="text-center">${users[i].lastName}</span>                          
+                    </h5>                         
                     </div>
                 </div>
               </div>
