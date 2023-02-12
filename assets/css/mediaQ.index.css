@@ -37,8 +37,12 @@
     .carousel-control-next-icon, .carousel-control-prev-icon {
         display: none !important;
     }
-    /*  */
-    
+    /* complete-purchase */
+    .purchase-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+   
 }
 
 @media (max-width:768px) {
