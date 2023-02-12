@@ -101,3 +101,18 @@ body {
     transform: scale(0.95);
   }
 
+  /* section book cards */
+  .main{
+    background-color: #fbfbfd;
+  }
+  .cards .card .accept{
+    color: greenyellow;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .cards .card .reject{
+    color: red;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
