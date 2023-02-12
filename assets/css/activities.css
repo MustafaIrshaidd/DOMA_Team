@@ -358,6 +358,7 @@ nav .navbar-brand img{
     padding-bottom: 10px;
     padding-top: 30px;
     background-color: white;
+    transition: all 2s;
     /* display: none; */
 }
 .activities .item2{
@@ -369,44 +370,59 @@ nav .navbar-brand img{
     padding-bottom: 10px;
     padding-top: 30px;
     background-color: white;
+    transition: all 2s;
     /* display: none; */
     
 }
+.activities .item:hover h2{
+    color: #4384f6;
+
+}
+.activities .item2:hover h2{
+    color: #4384f6;
+
+}
 .activities .item:hover{
     transform: scale(0.97);
-    transition: all 1s;
     cursor: pointer;
     /* height: 100%; */
 }
 .activities .item2:hover{
     transform: scale(0.97);
-    transition: all 1s;
     cursor: pointer;
 }
-.activities .item h2{
-    text-align: right; 
+.activities .item  .h2 h2{
+    text-align: justify; 
     padding-top: 15px; 
-    font-size: 25px;
+    font-size: 24px;
     padding-right: 15px;
+    transition: all 1s;
+    width: 100%;
 }
 
-.activities .item2 h2{
-    text-align: right; 
+.activities .item2  .h2 h2{
+    text-align: justify; 
     padding-top: 15px; 
-    font-size: 25px;
+    font-size: 24px;
     padding-right: 15px;
+    transition: 1s;
 }
 .activities .item p{
     color: #5e5f79;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 200;
     padding-right: 15px;
+    padding-left: 10px;
+    /* text-align: center; */
+    text-align: justify;
 }
 .activities .item2 p{
     color: #5e5f79;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 200;
     padding-right: 15px;
+    padding-left: 10px;
+    text-align: justify;
 }
 .activities .item .time{
     font-size:25px ;
@@ -418,13 +434,13 @@ nav .navbar-brand img{
 }
 .activities .item i{
     color: #4384f6;
-    font-size: 30px;
+    font-size: 25px;
     padding-right: 15px;
 }
 
 .activities .item2 i{
     color: #4384f6;
-    font-size: 30px;
+    font-size: 25px;
     padding-right: 15px;
 }
 /* end Activities section */
@@ -463,6 +479,7 @@ nav .navbar-brand img{
    color:#4384f6;
    border-color:#4384f6;
    background-color: white;
+   transition: all 2s;
 }
 .book .content button:hover{
     cursor: pointer;
