@@ -1,9 +1,12 @@
+
 let dashboardBtns=document.getElementById("dashboardBtns").getElementsByTagName('a')
 let dashboardBtn=document.getElementById("dashboardBtn")
 let eventsBtn=document.getElementById("eventsBtn")
 let mainContent=document.getElementById("mainContent")
 let usersBtn=document.getElementById("usersBtn")
 let cards=document.getElementById('reservationsBtn')
+
+
 let eventSearch
 let userSearch
 let eCards
@@ -301,43 +304,33 @@ dashboardBtn.addEventListener('click',function(){
 cards.addEventListener('click',function(){
   clear();
   cards.classList.add('active');
-
-
-
   // in foor loop but when osama solve his page
   data=`
-  <div class="cards text-center m-auto">
-        <h2> قائمة الحجوزآت</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card shadow-5-soft">
-              <div class="old mb-3">
-                <h6 class="d-inline"> العمر :</h6> 
-                <p class="d-inline"> 20</p>
-              </div>
-              <div class="time mb-3">
-                <h6 class="d-inline"> الوقت :</h6>  
-                <p class="d-inline"> 2-3</p>
-              </div>
-              <div class="type mb-3">
-                <h6 class="d-inline"> نوع الفعالية :</h6>
-                  <p class="d-inline">ترفيهي</p>
-              </div>
-              <div class="date mb-3">
-                <h6 class="d-inline"> التاريخ :</h6> 
-                 <p class="d-inline">15/2/2023</p>
-              </div>
-              <form class="inputs">
-                <input type="checkbox" id="accept" name="accept" value="accept">
-                <label for="accept " class="accept"> مقبول</label><br>
-                <input type="checkbox" id="reject" name="reject" value="reject">
-                <label for="reject " class="reject"> مرفوض</label><br>
-              </form>
-              
-            </div>
-           </div>
-          </div>
-        </div>
+  <div class="table">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">User Name</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Accept</th>
+              <th scope="col">Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td><button type="button" class="btn btn-primary">Accept</button></td>
+              <td><button type="button" class="btn btn-danger">Reject</button></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
   `;
   mainContent.innerHTML=data;
 })
