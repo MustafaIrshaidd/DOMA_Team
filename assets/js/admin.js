@@ -4,7 +4,7 @@ let dashboardBtn=document.getElementById("dashboardBtn")
 let eventsBtn=document.getElementById("eventsBtn")
 let mainContent=document.getElementById("mainContent")
 let usersBtn=document.getElementById("usersBtn")
-let cards=document.getElementById('reservationsBtn')
+let reservationsBtn=document.getElementById('reservationsBtn')
 
 
 let eventSearch
@@ -12,13 +12,21 @@ let userSearch
 let eCards
 
 let events=[]
-
+let reservations=[]
 window.onload = ()=>{
   if(localStorage.getItem('events')==null){
     events=[]
+
   }
   else{
     events=JSON.parse(localStorage.getItem('events'))
+  }
+  if(localStorage.getItem('reservations')==null){
+    reservations=[]
+    
+  }
+  else{
+    reservations=JSON.parse(localStorage.getItem('reservations'))
   }
 }
 
@@ -301,10 +309,13 @@ dashboardBtn.addEventListener('click',function(){
 
 // click on book cards on navbar
 
-cards.addEventListener('click',function(){
+reservationsBtn.addEventListener('click',function(){
   clear();
-  cards.classList.add('active');
-  // in foor loop but when osama solve his page
+  reservationsBtn.classList.add('active');
+  // in for loop but when osama solve his page
+  console.log(reservations)
+
+  
   data=`
   <div class="table">
         <table class="table text-center">
@@ -314,26 +325,45 @@ cards.addEventListener('click',function(){
               <th scope="col">User Name</th>
               <th scope="col">Start Date</th>
               <th scope="col">End Date</th>
+              <th scope="col">Price</th>
               <th scope="col">Accept</th>
               <th scope="col">Reject</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td><button type="button" class="btn btn-primary">Accept</button></td>
-              <td><button type="button" class="btn btn-danger">Reject</button></td>
-            </tr>
+  
+          <tbody>`
+            for(i=0;i<reservations.length;i++){
+                 data+=` <tr>
+                 <td>${i+1}</td>
+                 <td>${reservations[i].userName}</td>
+                 <td>${reservations[i].startDate}</td>
+                 <td>${reservations[i].endDate}</td>
+                 <td>${reservations[i].price}</td>
+                 <td><button type="button" id="resAccept"  onclick="reservationAccept(${i})" class="btn btn-primary">Accept</button></td>
+                 <td><button type="button" onclick="resrvationReject(${i})" class="btn btn-danger">Reject</button></td>
+                 
+               </tr>`
+            }
             
-          </tbody>
+          data+=`</tbody>
+
         </table>
       </div>
   `;
   mainContent.innerHTML=data;
 })
+//reservationAccept Function
+function reservationAccept(index){
+    reservations[index].accepted=true;
+    document.getElementById('resAccept').disabled=true;
+    localStorage.setItem('reservations',JSON.stringify(reservations));
+
+}
+//reservationReject Function 
+function resrvationReject(index){
+  reservations.splice(index,1);
+  localStorage.setItem('reservations',JSON.stringify(reservations));
+}
 
 eventsBtn.addEventListener('click',function(){
     clear()
