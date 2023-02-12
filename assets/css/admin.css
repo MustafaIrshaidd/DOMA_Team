@@ -95,3 +95,25 @@ body {
     transform: scale(0.95);
   }
 
+/* start book cards section */
+.main{
+  background-color: #fbfbfd;
+}
+
+.cards{
+  /* background-color: #fbfbfd; */
+  
+}
+.card{
+  /* display: inline; */
+  background-color: white;
+  border-radius: 10px;
+
+}
+.card .inputs .accept{
+  color:greenyellow;
+}
+.card .inputs .reject{
+  color: red;
+}
+/* start book cards section */
