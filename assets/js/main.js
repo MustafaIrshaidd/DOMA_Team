@@ -97,3 +97,7 @@ ScrollReveal().reveal('.features .feature4', { delay: 400, origin:'right'});
 //contact
 ScrollReveal().reveal('.contact h3', { delay: 200, origin:'left'});
 ScrollReveal().reveal('.contact p', { delay: 200, origin:'left'});
+
+//book cards header content
+ScrollReveal().reveal('.book .content h4', { delay: 100, origin:'left'});
+ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
