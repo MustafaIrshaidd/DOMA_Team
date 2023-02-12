@@ -770,12 +770,6 @@ async function addEvent(){
 
 }
 
-let check=document.getElementsByName("flexRadioDefault")
-
-check.addEventListener('click',function(){
-  displayEvents()
-})
-
 function displayEvents(){
 
   let radioFilter=document.getElementsByName("flexRadioDefault")
