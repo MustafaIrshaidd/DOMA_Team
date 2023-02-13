@@ -157,29 +157,34 @@
       </div>
 
       <div class="right-side">
-        <h2>اشترك الان</h2>
+        <h2 class="w-50 mb-2">اشترك الان</h2>
         <div class="form-outline age-form">
-          <input type="number" id="typeNumber" class="form-control" />
+          <input type="number" id="typeNumber" class="form-control " />
           <label class="form-label"  for="typeNumber">العمر</label>
         </div>
        <div class="date">
         <div class="start-date">
-          <p>start date</p>
-
+          <label for="start-date">تاريخ البدايه :</label>
+        <input type="date" id="d1" name="start-date">
         </div>
         <div class="end-date">
-          <p>end date</p>
+          <label for="end-date"> تاريخ النهايه :</label>
+        <input type="date" id="d2" name="end-date">
         </div>
+        
        </div>
-        <span class="right-side-money">$ 49.00 USD</span> <br>
-        <span class="quantity-word">الكميه</span>
-        <div class="quantity d-flex">
-          <div class="quanbox ">
-            <label for="number" class="form-label"></label>
-            <input type="number" class="form-range" id="customRange1">
-          </div>
-          <button class="cards-button">حجز اشتراك</button>
+       <div class="calculatePrice">
+        <a href="#" class="btn btn-success " onclick="calculateDays()" id="price-button">احسب الاشتراك</a>
+        <span id="output"></span> 
+
+       </div>
+       
+        
+        <div class="right-side-button">
+          <button class="cards-button ">حجز اشتراك</button>
         </div>
+       
+       
       </div>
     </div>
   </div>
