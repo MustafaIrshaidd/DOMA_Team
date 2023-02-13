@@ -2,13 +2,12 @@ let dashboardBtns=document.getElementById("dashboardBtns").getElementsByTagName(
 let dashboardBtn=document.getElementById("dashboardBtn")
 let eventsBtn=document.getElementById("eventsBtn")
 let mainContent=document.getElementById("mainContent")
-let usersBtn=document.getElementById("usersBtn");
+let usersBtn=document.getElementById("usersBtn")
+let cards=document.getElementById('reservationsBtn')
 let eventSearch
 let userSearch
 let eCards
 
-
-let users=[];
 let events=[]
 
 window.onload = ()=>{
@@ -295,6 +294,52 @@ dashboardBtn.addEventListener('click',function(){
     
     `
     mainContent.innerHTML=data;
+})
+
+// click on book cards on navbar
+
+cards.addEventListener('click',function(){
+  clear();
+  cards.classList.add('active');
+
+
+
+  // in foor loop but when osama solve his page
+  data=`
+  <div class="cards text-center m-auto">
+        <h2> قائمة الحجوزآت</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card shadow-5-soft">
+              <div class="old mb-3">
+                <h6 class="d-inline"> العمر :</h6> 
+                <p class="d-inline"> 20</p>
+              </div>
+              <div class="time mb-3">
+                <h6 class="d-inline"> الوقت :</h6>  
+                <p class="d-inline"> 2-3</p>
+              </div>
+              <div class="type mb-3">
+                <h6 class="d-inline"> نوع الفعالية :</h6>
+                  <p class="d-inline">ترفيهي</p>
+              </div>
+              <div class="date mb-3">
+                <h6 class="d-inline"> التاريخ :</h6> 
+                 <p class="d-inline">15/2/2023</p>
+              </div>
+              <form class="inputs">
+                <input type="checkbox" id="accept" name="accept" value="accept">
+                <label for="accept " class="accept"> مقبول</label><br>
+                <input type="checkbox" id="reject" name="reject" value="reject">
+                <label for="reject " class="reject"> مرفوض</label><br>
+              </form>
+              
+            </div>
+           </div>
+          </div>
+        </div>
+  `;
+  mainContent.innerHTML=data;
 })
 
 eventsBtn.addEventListener('click',function(){
@@ -738,7 +783,6 @@ check.addEventListener('click',function(){
   displayEvents()
 })
 
-
 function displayEvents(){
 
   let radioFilter=document.getElementsByName("flexRadioDefault")
@@ -944,8 +988,3 @@ function eventsSearch(){
 
   eCards.innerHTML=data
 }
-
-
-
-
-
