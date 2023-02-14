@@ -18,6 +18,7 @@ window.addEventListener('load',function(){
     }, 1500)
 })
 
+
 //NavBar
 
 let mainBtn=document.getElementById('mainBtn');
