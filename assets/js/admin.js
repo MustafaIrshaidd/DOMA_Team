@@ -5,14 +5,20 @@ let eventsBtn=document.getElementById("eventsBtn")
 let mainContent=document.getElementById("mainContent")
 let usersBtn=document.getElementById("usersBtn")
 let reservationsBtn=document.getElementById('reservationsBtn')
+let collaborationsBtn=document.getElementById('collaborationsBtn')
 
 
 let eventSearch
 let userSearch
+let userCard
+let collaborationSearch
+let collaborationCard
 let eCards
-
+let id=0;
+ let img;
 let events=[]
 let reservations=[]
+let collaborations=[];
 window.onload = ()=>{
   if(localStorage.getItem('events')==null){
     events=[]
@@ -725,6 +731,275 @@ function usersSearch(){
 }
 
 /*################# End Users section ################# */
+
+/*################# Start Collaborations section ################# */
+
+collaborationsBtn.addEventListener('click',function(){
+  if(localStorage.getItem('collaborations')==null){
+    collaborations=[]
+  }
+  else{
+    collaborations=JSON.parse(localStorage.getItem('collaborations'))
+  }
+  clear();
+  collaborationsBtn.classList.add('active');
+  var data=`
+  
+  <section>
+  <div class="row">
+    <div class="col-xl-6 col-md-12 mb-4">
+      <div class="input-group rounded mb-4">
+        <input id="collaborationSearch" onkeyup="collaborationsSearch()" type="search" value="" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+    <div class="col-xl-6 col-md-12 mb-4 text-center">
+      <button type="button" class="btn btn-primary w-50" onclick="addCollaboration()">add collaboration</button>
+    </div>
+    <div class="row" id="collaborationCard">
+      
+    </div>
+  </div>        
+</section>
+
+    `
+
+  
+
+  mainContent.innerHTML=data;
+  collaborationCard=document.getElementById("collaborationCard");
+  collaborationSearch=document.getElementById("collaborationSearch");
+  displayCollaborations();
+  console.log(collaborations);
+  
+})
+
+
+let collURL='';
+
+async function addCollaboration(){
+  if(localStorage.getItem('collaborations')==null){
+    collaborations=[];
+    id=0;
+  }else{
+    while(id<collaborations.length){
+    id++;
+  }
+}
+  const { value: formValues } = await Swal.fire({
+    title: 'تفاصيل التعاون',
+    html:
+      `<input id="swal-input1" class="swal2-input w-75 mb-3" placeholder="اسم التعاون">
+       
+       <input id="file${id}" type="file" onchange="loadcollab(event,${id})"/>
+       `,
+
+    focusConfirm: false,
+    preConfirm: () => {
+      return [
+        document.getElementById('swal-input1').value,
+        document.getElementById(`file${id}`).value,
+      ]
+    }
+  })
+  if (formValues) {
+    Swal.fire(JSON.stringify(formValues))
+  }
+if(formValues[1]==""){
+  collURL='assets/images/gallery_interested/collaborationlogo.png';
+}
+  let collaboration={
+    name:formValues[0],
+    src:collURL,
+  }
+  collaborations.push(collaboration);
+  localStorage.setItem('collaborations',JSON.stringify(collaborations));
+  displayCollaborations();
+
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1000
+  })
+  
+}
+var loadcollab = function (event,i) {
+  var image = document.getElementById(`collabPic${i}`);
+  const fr = new FileReader();
+  fr.readAsDataURL(event.target.files[0]);
+  fr.addEventListener('load', ()=>{
+    const URL=fr.result;
+    collURL=URL;
+    image.src =URL;
+    collaborations[i].src=URL;
+    let coll={
+      name:collaborations[i].name,
+      src:collaborations[i].src,
+    }
+  collaborations[i]=coll;
+  
+  localStorage.setItem('collaborations',JSON.stringify(collaborations));
+  })
+  
+};
+
+
+function displayCollaborations(){
+  
+  var data="";
+  for(var i=0;i<collaborations.length;i++){
+    data+=`
+    <div class="col-xl-4 col-md-6 mb-4 ">
+        <div class="card card-users border">
+          <div  class="h-100 d-flex justify-content-center" >
+            <div class="card-body text-body ">
+              <div class="user container h-100">
+                  <div class="updateDelete" onclick=" collabCardsEditDelete(${i})">
+                    <i class="icon fa-solid fa-pen-to-square bg-primary text-white rounded-circle text-center"></i>
+                  </div>
+                  <div >
+                    <div class="avatar h-100 d-flex flex-column align-items-center justify-content-center">
+                        <div class="img-container position-relative">
+                            <img src=${collaborations[i].src} id="collabPic${i}" class="rounded-2 img-fluid" />
+                        <label class="-label d-flex justify-content-center align-items-center rounded-2 position-absolute" for="file${i}">
+                          <span>تغيير الصورة</span>
+                        </label>
+                        <input id="file${i}" type="file" onchange="loadcollab(event,${i})"/>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row user-info content align-items-center justify-content-center pt-4 ">
+                    <h5 class="text-center">
+                    <span class="text-center">${collaborations[i].name}</span>                          
+                    </h5>
+                  </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    `
+  }
+
+ 
+  collaborationCard.innerHTML=data;
+  
+}
+
+
+function collabCardsEditDelete(id){
+  Swal.fire({
+    title: 'Delete Or Update',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Update',
+    denyButtonText: `Delete`,
+  }).then (async(result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      const { value: formValues } = await Swal.fire({
+        title: 'تفاصيل التعاون',
+        html:
+          `<input value="${collaborations[id].name}" id="swal-input1" class="swal2-input w-75" placeholder="اسم التعاون">
+          `,
+    
+        focusConfirm: false,
+        preConfirm: () => {
+          return [
+            document.getElementById('swal-input1').value,
+          ]
+        }
+      })
+      
+      if (formValues) {
+        Swal.fire(JSON.stringify(formValues))
+      }
+      var image = document.getElementById(`collabPic${id}`);
+      let coll= await{
+        name:formValues[0],
+        src: image.src,
+      }
+      collaborations[id]=coll;      
+      localStorage.setItem('collaborations',JSON.stringify(collaborations));    
+      displayCollaborations();    
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1000
+      })
+
+    } else if (result.isDenied) {
+        collaborations.splice(id,1);
+        localStorage.setItem("collaborations",JSON.stringify(collaborations));
+        displayCollaborations()
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'User has been deleted',
+          showConfirmButton: false,
+          timer: 1000
+        })
+    }
+  })
+
+
+}
+
+
+function collaborationsSearch(){
+  let data='';
+  let searchKey=collaborationSearch.value;
+
+  for(var i=0;i<collaborations.length;i++){
+    
+    let name=collaborations[i].name;
+    
+    if(name.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())){
+      data+=`
+    <div class="col-xl-4 col-md-6 mb-4 ">
+        <div class="card card-users border">
+          <div  class="h-100 d-flex justify-content-center" >
+            <div class="card-body text-body ">
+              <div class="user container h-100">
+                  <div class="updateDelete" onclick=" collabCardsEditDelete(${i})">
+                    <i class="icon fa-solid fa-pen-to-square bg-primary text-white rounded-circle text-center"></i>
+                  </div>
+                  <div >
+                    <div class="avatar h-100 d-flex flex-column align-items-center justify-content-center">
+                        <div class="img-container position-relative">
+                            <img src=${collaborations[i].src} id="collabPic${i}" class="rounded-2 img-fluid" />
+                        <label class="-label d-flex justify-content-center align-items-center rounded-2 position-absolute" for="file${i}">
+                          <span>تغيير الصورة</span>
+                        </label>
+                        <input id="file${i}" type="file" onchange="loadcollab(event,${i})"/>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row user-info content align-items-center justify-content-center pt-4 ">
+                    <h5 class="text-center">
+                    <span class="text-center">${collaborations[i].name}</span>                          
+                    </h5>
+                  </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+    `
+    }
+  }
+   
+  collaborationCard.innerHTML=data;
+}
+/*################# End Collaborations section ################# */
+
 
 
 function clear(){
