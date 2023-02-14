@@ -78,5 +78,6 @@ function clear(){
     userName.value="";
     d1.value='';
     d2.value='';
+   
 }
 

@@ -478,9 +478,7 @@ a{
     height:486px;
     background-color: #fff;
     right: 0;
-    
-    z-index: 2;
-    
+    z-index: 2;  
 }
 .about-us .content h6{
     font-size: 20px;
