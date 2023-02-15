@@ -84,7 +84,7 @@ ScrollReveal({
 });
 ScrollReveal().reveal('.gallery .gallery-title,.interested .interested-title', { delay: 200, origin:'left' });
 ScrollReveal().reveal('.interested .cardL', { delay: 400, origin:'left'});
-ScrollReveal().reveal('.interested .cardC', { delay: 400, origin:'bottom'});
+ScrollReveal().reveal('.interested .cardC', { delay: 500, origin:'bottom'});
 ScrollReveal().reveal('.interested .cardR', { delay: 400, origin:'right'});
 
 //features
@@ -103,6 +103,21 @@ ScrollReveal().reveal('.contact p', { delay: 200, origin:'left'});
 ScrollReveal().reveal('.book .content h4', { delay: 100, origin:'left'});
 ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
 
+//cards
+ScrollReveal().reveal('.cards .title', { delay: 100, origin:'left'});
+ScrollReveal().reveal('.cards .card-title', { delay: 300, origin:'left'});
+ScrollReveal().reveal('.cards #single-card2', { delay: 300, origin:'left'});
+ScrollReveal().reveal('.cards #single-card1', { delay: 300, origin:'right'});
+
+//contact
+ScrollReveal().reveal('.contact h2', { delay: 400, origin:'left'});
+ScrollReveal().reveal('.contact .content-contact', { delay: 600, origin:'right'});
+
+//collaborations
+ScrollReveal().reveal('.collaboration h2', { delay: 200, origin:'left'});
+ScrollReveal().reveal('#collabs', { delay: 400, origin:'bottom',easing: 'ease-in',duration: 500 });
+
+
 // main page video 
 
 //collaborations
@@ -120,7 +135,7 @@ window.onload = ()=>{
     }
     for(let i=0;i<collaborations.length;i++){
         data+=`
-              <div class="col-md-4 col-lg-3 mb-4 d-flex justify-content-center ">
+              <div class="col-md-4 col-lg-3 mb-4 d-flex justify-content-center coll">
                   <div class="img-cont">
                       <img src=${collaborations[i].src} class="img-fluid rounded-3"/>
                   </div>
