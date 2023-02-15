@@ -106,8 +106,8 @@ ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
 //cards
 ScrollReveal().reveal('.cards .title', { delay: 100, origin:'left'});
 ScrollReveal().reveal('.cards .card-title', { delay: 300, origin:'left'});
-ScrollReveal().reveal('.cards #single-card2', { delay: 300, origin:'left'});
-ScrollReveal().reveal('.cards #single-card1', { delay: 300, origin:'right'});
+ScrollReveal().reveal('.cards #single-card2', { delay: 600, origin:'left'});
+ScrollReveal().reveal('.cards #single-card1', { delay: 600, origin:'right'});
 
 //contact
 ScrollReveal().reveal('.contact h2', { delay: 400, origin:'left'});
