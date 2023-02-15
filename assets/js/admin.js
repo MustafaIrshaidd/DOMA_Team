@@ -8,12 +8,7 @@ let usersBtn = document.getElementById("usersBtn");
 let reservationsBtn = document.getElementById("reservationsBtn");
 let collaborationsBtn=document.getElementById('collaborationsBtn')
 
-let dashboardBtns=document.getElementById("dashboardBtns").getElementsByTagName('a')
-let dashboardBtn=document.getElementById("dashboardBtn")
-let eventsBtn=document.getElementById("eventsBtn")
-let mainContent=document.getElementById("mainContent")
-let usersBtn=document.getElementById("usersBtn")
-let reservationsBtn=document.getElementById('reservationsBtn')
+let pastEvents = [];
 
 let eventSearch
 let userSearch
@@ -25,10 +20,13 @@ let id=0;
  let img;
 let events=[]
 let reservations=[]
-window.onload = ()=>{
-  if(localStorage.getItem('events')==null){
-    events=[]
+let collaborations=[]
 
+window.onload = () => {
+  if (localStorage.getItem("events") == null) {
+    events = [];
+  } else {
+    events = JSON.parse(localStorage.getItem("events"));
   }
   if (localStorage.getItem("reservations") == null) {
     reservations = [];
@@ -40,10 +38,7 @@ window.onload = ()=>{
   } else {
     pastEvents = JSON.parse(localStorage.getItem("pastEvents"));
   }
-  else{
-    reservations=JSON.parse(localStorage.getItem('reservations'))
-  }
-}
+};
 
 dashboardBtn.addEventListener("click", function () {
   clear();
@@ -321,7 +316,7 @@ dashboardBtn.addEventListener("click", function () {
   mainContent.innerHTML = data;
 });
 
-// click on reservationsBtn on navbar
+// click on book cards on navbar
 
 reservationsBtn.addEventListener("click", function () {
   clear();
@@ -366,22 +361,22 @@ reservationsBtn.addEventListener("click", function () {
   mainContent.innerHTML = data;
 });
 //reservationAccept Function
-function reservationAccept(index){
-    reservations[index].accepted=true;
-    document.getElementById('resAccept').disabled=true;
-    localStorage.setItem('reservations',JSON.stringify(reservations));
-
+function reservationAccept(index) {
+  reservations[index].accepted = true;
+  document.getElementById("resAccept").disabled = true;
+  localStorage.setItem("reservations", JSON.stringify(reservations));
 }
-//reservationReject Function 
-function resrvationReject(index){
-  reservations.splice(index,1);
-  localStorage.setItem('reservations',JSON.stringify(reservations));
+//reservationReject Function
+function resrvationReject(index) {
+  reservations.splice(index, 1);
+  localStorage.setItem("reservations", JSON.stringify(reservations));
+  reservationsBtn.click();
 }
 
-eventsBtn.addEventListener('click',function(){
-    clear()
-    eventsBtn.classList.add('active')
-    var data=`
+eventsBtn.addEventListener("click", function () {
+  clear();
+  eventsBtn.classList.add("active");
+  var data = `
   <section>
   <div class="row">
     <div class="col-xl-6 col-md-12 mb-4">
@@ -1289,3 +1284,6 @@ function eventsSearch() {
 
   eCards.innerHTML = data;
 }
+
+let messages=[]
+
