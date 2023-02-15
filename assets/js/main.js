@@ -1,12 +1,3 @@
-
-let cardsButton = document.getElementById("cardsButton");
-let cardsButton2 = document.getElementById("cardsButton2");
-
-let submit=document.getElementById('submit');
-let form4Example1=document.getElementById('form4Example1'); //name
-let form4Example2=document.getElementById('form4Example2');  //email
-let form4Example3=document.getElementById('form4Example3');  //message
-console.log(form4Example3);
 //Loading Screen
 
 let body=document.body;
@@ -66,6 +57,9 @@ login.addEventListener('click',function(){
 
 // routing to cards page
 
+let cardsButton = document.getElementById("cardsButton");
+let cardsButton2 = document.getElementById("cardsButton2");
+
 if(cardsButton){
 cardsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -79,8 +73,6 @@ cardsButton2.addEventListener("click", function (e) {
   window.location.href = "cards.html";
 });
 }
-
-
 //Gallery
 ScrollReveal({
     reset: false,
@@ -109,55 +101,6 @@ ScrollReveal().reveal('.contact p', { delay: 200, origin:'left'});
 ScrollReveal().reveal('.book .content h4', { delay: 100, origin:'left'});
 ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
 
-
-let messages=[]
-
-window.onload = ()=>{
-  if(localStorage.getItem('messages')==null){
-    messages=[]
-  }
-  else{
-    messages=JSON.parse(localStorage.getItem('messages'))
-  }
-}
-
-
-submit.addEventListener('click',function(e){
-    e.preventDefault()
-    if(form4Example1.value=='' &&  form4Example2.value =='' && form4Example3.value=='' ){
-        Swal.fire({
-            title: 'Please Enter Values',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          })
-    }
-    else{
-
-        let message={ 
-            userName:form4Example1.value,
-            email:form4Example2.value,
-            msg:form4Example3.value,
-            accepted:false,
-            
-        }
-  messages.push(message);
-  localStorage.setItem('messages',JSON.stringify(messages));
-  clear();
-    }
-    
-})
-
-function clear(){
-    form4Example1.value="";
-    form4Example2.value='';
-    form4Example3.value='';
-}
-
-
 //cards
 ScrollReveal().reveal('.cards .title', { delay: 100, origin:'left'});
 ScrollReveal().reveal('.cards .card-title', { delay: 300, origin:'left'});
@@ -175,14 +118,18 @@ ScrollReveal().reveal('#collabs', { delay: 400, origin:'bottom',easing: 'ease-in
 
 // main page video 
 
-//collaborations
-let collaborations;
-let collabs=document.getElementById('collabs');
+// //collaborations
+ let collaborations;
+ let collabs=document.getElementById('collabs');
+ console.log(collabs)
+
 let data='';
 
 window.onload = ()=>{
     if(localStorage.getItem('collaborations')==null){
         collaborations=[];
+        console.log(collaborations)
+        
     }
     else{
         collaborations=JSON.parse(localStorage.getItem('collaborations'))
@@ -191,11 +138,11 @@ window.onload = ()=>{
     for(let i=0;i<collaborations.length;i++){
         data+=`
               <div class="col-md-4 col-lg-3 mb-4 d-flex justify-content-center coll">
-                  <div class="img-cont">
-                      <img src=${collaborations[i].src} class="img-fluid rounded-3"/>
-                  </div>
-              </div> 
-              `
+                   <div class="img-cont">
+                       <img src=${collaborations[i].src} class="img-fluid rounded-3"/>
+                   </div>
+               </div> 
+               `
     }
     collabs.innerHTML=data;
 }
@@ -258,11 +205,47 @@ function displayPastEvents(){
     pastEvent.innerHTML=dataEvents
     indicator.innerHTML=dataIndicator
 
+}
+
+
+
+let submit=document.getElementById('submit');
+let form4Example1=document.getElementById('form4Example1'); //name
+let form4Example2=document.getElementById('form4Example2');  //email
+let form4Example3=document.getElementById('form4Example3');  //message
+console.log(form4Example3);
+
+submit.addEventListener('click',function(e){
+    e.preventDefault()
+    if(form4Example1.value=='' &&  form4Example2.value =='' && form4Example3.value=='' ){
+        Swal.fire({
+            title: 'Please Enter Values',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+    }
+    else{
+
+        let message={ 
+            userName:form4Example1.value,
+            email:form4Example2.value,
+            msg:form4Example3.value,
+            accepted:false,
+            
+        }
+  messages.push(message);
+  localStorage.setItem('messages',JSON.stringify(messages));
+  clear();
+    }
     
+})
 
-
-    
-
-
-
+function clear(){
+    form4Example1.value="";
+    form4Example2.value='';
+    form4Example3.value='';
 }
