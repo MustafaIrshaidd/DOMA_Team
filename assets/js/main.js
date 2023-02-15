@@ -90,7 +90,7 @@ ScrollReveal({
 });
 ScrollReveal().reveal('.gallery .gallery-title,.interested .interested-title', { delay: 200, origin:'left' });
 ScrollReveal().reveal('.interested .cardL', { delay: 400, origin:'left'});
-ScrollReveal().reveal('.interested .cardC', { delay: 400, origin:'bottom'});
+ScrollReveal().reveal('.interested .cardC', { delay: 500, origin:'bottom'});
 ScrollReveal().reveal('.interested .cardR', { delay: 400, origin:'right'});
 
 //features
@@ -157,3 +157,112 @@ function clear(){
     form4Example3.value='';
 }
 
+
+//cards
+ScrollReveal().reveal('.cards .title', { delay: 100, origin:'left'});
+ScrollReveal().reveal('.cards .card-title', { delay: 300, origin:'left'});
+ScrollReveal().reveal('.cards #single-card2', { delay: 600, origin:'left'});
+ScrollReveal().reveal('.cards #single-card1', { delay: 600, origin:'right'});
+
+//contact
+ScrollReveal().reveal('.contact h2', { delay: 400, origin:'left'});
+ScrollReveal().reveal('.contact .content-contact', { delay: 600, origin:'right'});
+
+//collaborations
+ScrollReveal().reveal('.collaboration h2', { delay: 200, origin:'left'});
+ScrollReveal().reveal('#collabs', { delay: 400, origin:'bottom',easing: 'ease-in',duration: 500 });
+
+
+// main page video 
+
+//collaborations
+let collaborations;
+let collabs=document.getElementById('collabs');
+let data='';
+
+window.onload = ()=>{
+    if(localStorage.getItem('collaborations')==null){
+        collaborations=[];
+    }
+    else{
+        collaborations=JSON.parse(localStorage.getItem('collaborations'))
+        console.log(collaborations);
+    }
+    for(let i=0;i<collaborations.length;i++){
+        data+=`
+              <div class="col-md-4 col-lg-3 mb-4 d-flex justify-content-center coll">
+                  <div class="img-cont">
+                      <img src=${collaborations[i].src} class="img-fluid rounded-3"/>
+                  </div>
+              </div> 
+              `
+    }
+    collabs.innerHTML=data;
+}
+ 
+
+
+//pastEvents 
+
+let pastEvent=document.getElementById('pastEvents')
+let indicator=document.getElementById('indicator')
+let pastEvents=[]
+
+if(localStorage.getItem('pastEvents')==null){
+    pastEvents=[]
+}
+else{
+    pastEvents=JSON.parse(localStorage.getItem('pastEvents'));
+
+    displayPastEvents()
+}
+
+function displayPastEvents(){
+    let dataEvents=``
+    let dataIndicator=``
+
+    for(var i=0;i<pastEvents.length;i++){
+        dataEvents+=`
+        <div class="carousel-item active">
+        <a href="#">
+          <img
+            src="${pastEvents[i].src}"
+            class="d-block img-fluid"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>${pastEvents[i].title}</h5>
+            <p>${pastEvents[i].description}</p>
+          </div>
+        </a>
+      </div>
+        `
+        dataIndicator+=`
+        <button
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide-to="${i}"
+              class="active"
+              aria-current="true"
+              aria-label="Slide ${i+1}"
+            >
+              <img
+                src="${pastEvents[i].src}"
+                class="d-clock w-100 rounded"
+                alt=""
+              />
+            </button>
+        `
+    }
+
+    pastEvent.innerHTML=dataEvents
+    indicator.innerHTML=dataIndicator
+
+    
+
+
+    
+
+
+
+}
