@@ -33,6 +33,12 @@
     }
 }
 
+@media (min-width:991px) {
+    .gallery .container{
+        width: 75% !important;
+    }
+    
+}
 @media (max-width:991px) {
     .carousel-control-next-icon, .carousel-control-prev-icon {
         display: none !important;
@@ -42,7 +48,9 @@
         flex-direction: column;
         justify-content: center;
     }
-   
+    .gallery .carousel-item{
+        height: 20rem !important;
+    }
 }
 
 @media (max-width:768px) {
