@@ -365,8 +365,6 @@ function reservationAccept(index){
     reservations[index].accepted=true;
     document.getElementById('resAccept').disabled=true;
     localStorage.setItem('reservations',JSON.stringify(reservations));
-    document.getElementById('resAccept').setAttribute('style','background:green!important');
-
 }
 //reservationReject Function 
 function resrvationReject(index){
@@ -374,7 +372,7 @@ function resrvationReject(index){
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: 'This message has accepted!',
       footer: '<a href="">Why do I have this issue?</a>'
     }) }
     else{
@@ -438,7 +436,7 @@ function messageReject(ind){
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: 'This message has accepted!',
       footer: '<a href="">Why do I have this issue?</a>'
     })
   }
