@@ -105,3 +105,28 @@ ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
 
 // main page video 
 
+//collaborations
+let collaborations;
+let collabs=document.getElementById('collabs');
+let data='';
+
+window.onload = ()=>{
+    if(localStorage.getItem('collaborations')==null){
+        collaborations=[];
+    }
+    else{
+        collaborations=JSON.parse(localStorage.getItem('collaborations'))
+        console.log(collaborations);
+    }
+    for(let i=0;i<collaborations.length;i++){
+        data+=`
+              <div class="col-md-4 col-lg-3 mb-4 d-flex justify-content-center ">
+                  <div class="img-cont">
+                      <img src=${collaborations[i].src} class="img-fluid rounded-3"/>
+                  </div>
+              </div> 
+              `
+    }
+    collabs.innerHTML=data;
+}
+ 

@@ -31,8 +31,9 @@ body{
 }
 
 section{
-    padding-block: 4rem ;
+    padding-block: 3.5rem ;
 }
+
 
 /* custom scrollbar */
 
@@ -391,6 +392,7 @@ header .overlay .green1{
 .interested .card h3{
     color: var(--white);
 }
+
 .interested .card .overlay{
     content: "";
     position: absolute;
@@ -864,6 +866,10 @@ box-shadow: none;
 /* start collaboration section */
 .collaboration h2{
     font-weight: 600;
+}
+.collaboration .img-cont{
+    width: 16.5rem;
+    height: 16.5rem;
 }
 
 /* cards CSS */

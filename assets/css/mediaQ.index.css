@@ -51,6 +51,10 @@
     .gallery .carousel-item{
         height: 20rem !important;
     }
+    section{
+        padding-block: 2rem !important;
+    }
+    
 }
 
 @media (max-width:768px) {
