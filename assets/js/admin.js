@@ -5,7 +5,7 @@ let eventsBtn=document.getElementById("eventsBtn")
 let mainContent=document.getElementById("mainContent")
 let usersBtn=document.getElementById("usersBtn")
 let reservationsBtn=document.getElementById('reservationsBtn')
-
+let messageBtn = document.getElementById('messageBtn')
 
 let eventSearch
 let userSearch
@@ -13,6 +13,7 @@ let eCards
 
 let events=[]
 let reservations=[]
+let messages=[]
 window.onload = ()=>{
   if(localStorage.getItem('events')==null){
     events=[]
@@ -27,6 +28,13 @@ window.onload = ()=>{
   }
   else{
     reservations=JSON.parse(localStorage.getItem('reservations'))
+  }
+  if(localStorage.getItem('messages')==null){
+    messages=[]
+    
+  }
+  else{
+    messages=JSON.parse(localStorage.getItem('messages'))
   }
 }
 
@@ -307,7 +315,7 @@ dashboardBtn.addEventListener('click',function(){
     mainContent.innerHTML=data;
 })
 
-// click on book cards on navbar
+// click on reservationsBtn on navbar
 
 reservationsBtn.addEventListener('click',function(){
   clear();
@@ -357,12 +365,88 @@ function reservationAccept(index){
     reservations[index].accepted=true;
     document.getElementById('resAccept').disabled=true;
     localStorage.setItem('reservations',JSON.stringify(reservations));
+    document.getElementById('resAccept').setAttribute('style','background:green!important');
 
 }
 //reservationReject Function 
 function resrvationReject(index){
-  reservations.splice(index,1);
-  localStorage.setItem('reservations',JSON.stringify(reservations));
+  if(reservations[index].accepted==true){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>'
+    }) }
+    else{
+      reservations.splice(index,1);
+      localStorage.setItem('reservations',JSON.stringify(reservations));
+    }
+  
+}
+
+//click on messageBtn
+
+messageBtn.addEventListener('click',function(){
+  clear();
+  messageBtn.classList.add('active');
+  
+  data=`
+  <div class="messages">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">user name</th>
+        <th scope="col">email</th>
+        <th scope="col">message</th>
+        <th scope="col">Accept</th>
+        <th scope="col">Reject</th>
+
+      </tr>
+    </thead>
+    <tbody>`
+            for(i=0;i<messages.length;i++){
+                 data+=` <tr>
+                 <td>${i+1}</td>
+                 <td>${messages[i].userName}</td>
+                 <td>${messages[i].email}</td>
+                 <td>${messages[i].msg}</td>
+                 <td><button type="button" id="msgAccept"  onclick="messageAccept(${i})" class="btn btn-primary">Accept</button></td>
+                 <td><button type="button" onclick="messageReject(${i})" class="btn btn-danger">Reject</button></td>
+               </tr>`
+            }
+            
+          data+=`</tbody>
+
+  </table>
+</div>
+  `;
+  mainContent.innerHTML=data;
+})
+
+
+//messageAccept Function
+function messageAccept(ind){
+  messages[ind].accepted=true;
+  document.getElementById('msgAccept').disabled=true;
+  localStorage.setItem('messages',JSON.stringify(messages));
+
+}
+//messageReject Function 
+function messageReject(ind){
+  if(messages[ind].accepted==true){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>'
+    })
+  }
+  else{
+
+    messages.splice(ind,1);
+    localStorage.setItem('messages',JSON.stringify(messages));
+  }
 }
 
 eventsBtn.addEventListener('click',function(){

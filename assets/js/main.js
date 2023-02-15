@@ -1,3 +1,12 @@
+
+let cardsButton = document.getElementById("cardsButton");
+let cardsButton2 = document.getElementById("cardsButton2");
+
+let submit=document.getElementById('submit');
+let form4Example1=document.getElementById('form4Example1'); //name
+let form4Example2=document.getElementById('form4Example2');  //email
+let form4Example3=document.getElementById('form4Example3');  //message
+console.log(form4Example3);
 //Loading Screen
 
 let body=document.body;
@@ -57,9 +66,6 @@ login.addEventListener('click',function(){
 
 // routing to cards page
 
-let cardsButton = document.getElementById("cardsButton");
-let cardsButton2 = document.getElementById("cardsButton2");
-
 if(cardsButton){
 cardsButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -102,3 +108,52 @@ ScrollReveal().reveal('.contact p', { delay: 200, origin:'left'});
 //book cards header content
 ScrollReveal().reveal('.book .content h4', { delay: 100, origin:'left'});
 ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
+
+
+let messages=[]
+
+window.onload = ()=>{
+  if(localStorage.getItem('messages')==null){
+    messages=[]
+  }
+  else{
+    messages=JSON.parse(localStorage.getItem('messages'))
+  }
+}
+
+
+submit.addEventListener('click',function(e){
+    e.preventDefault()
+    if(form4Example1.value=='' &&  form4Example2.value =='' && form4Example3.value=='' ){
+        Swal.fire({
+            title: 'Please Enter Values',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+    }
+    else{
+
+        let message={ 
+            userName:form4Example1.value,
+            email:form4Example2.value,
+            msg:form4Example3.value,
+            accepted:false,
+            
+        }
+  messages.push(message);
+  localStorage.setItem('messages',JSON.stringify(messages));
+  clear();
+    }
+    
+})
+
+function clear(){
+    form4Example1.value="";
+    form4Example2.value='';
+    form4Example3.value='';
+}
+
