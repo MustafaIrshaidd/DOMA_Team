@@ -154,7 +154,7 @@ window.onload = ()=>{
 let pastEvent=document.getElementById('pastEvents')
 let indicator=document.getElementById('indicator')
 let pastEvents=[]
-
+let messages=[]
 if(localStorage.getItem('pastEvents')==null){
     pastEvents=[]
 }
@@ -162,6 +162,12 @@ else{
     pastEvents=JSON.parse(localStorage.getItem('pastEvents'));
 
     displayPastEvents()
+}
+if(localStorage.getItem('messages')==null){
+  messages=[]
+}
+else{
+  messages=JSON.parse(localStorage.getItem('messages'))
 }
 
 function displayPastEvents(){
@@ -214,16 +220,9 @@ let form4Example1=document.getElementById('form4Example1'); //name
 let form4Example2=document.getElementById('form4Example2');  //email
 let form4Example3=document.getElementById('form4Example3');  //message
 
-let messages=[]
 
-window.onload = ()=>{
-  if(localStorage.getItem('messages')==null){
-    messages=[]
-  }
-  else{
-    messages=JSON.parse(localStorage.getItem('messages'))
-  }
-}
+
+
 
 submit.addEventListener('click',function(e){
     e.preventDefault()

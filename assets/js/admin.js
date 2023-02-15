@@ -21,7 +21,7 @@ let id=0;
 let events=[]
 let reservations=[]
 let collaborations=[]
-
+let messages=[]
 window.onload = () => {
   if (localStorage.getItem("events") == null) {
     events = [];
@@ -37,6 +37,11 @@ window.onload = () => {
     pastEvents = [];
   } else {
     pastEvents = JSON.parse(localStorage.getItem("pastEvents"));
+  }
+  if (localStorage.getItem("messages") == null) {
+    messages = [];
+  } else {
+    messages = JSON.parse(localStorage.getItem("messages"));
   }
 };
 
@@ -404,7 +409,6 @@ messageBtn.addEventListener("click", function () {
                  <td>${messages[i].msg}</td>
                  <td><button type="button" id="msgAccept"  onclick="messageAccept(${i})" class="btn btn-primary">Accept</button></td>
                  <td><button type="button" onclick="messageReject(${i})" class="btn btn-danger">Reject</button></td>
-                 
                </tr>`;
   }
 
@@ -1351,5 +1355,5 @@ function eventsSearch() {
   eCards.innerHTML = data;
 }
 
-let messages=[]
+
 
