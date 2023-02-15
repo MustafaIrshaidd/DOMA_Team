@@ -1,12 +1,14 @@
-
-let dashboardBtns=document.getElementById("dashboardBtns").getElementsByTagName('a')
-let dashboardBtn=document.getElementById("dashboardBtn")
-let eventsBtn=document.getElementById("eventsBtn")
-let mainContent=document.getElementById("mainContent")
-let usersBtn=document.getElementById("usersBtn")
-let reservationsBtn=document.getElementById('reservationsBtn')
+let dashboardBtns = document
+  .getElementById("dashboardBtns")
+  .getElementsByTagName("a");
+let dashboardBtn = document.getElementById("dashboardBtn");
+let eventsBtn = document.getElementById("eventsBtn");
+let mainContent = document.getElementById("mainContent");
+let usersBtn = document.getElementById("usersBtn");
+let reservationsBtn = document.getElementById("reservationsBtn");
 let collaborationsBtn=document.getElementById('collaborationsBtn')
 
+let pastEvents = [];
 
 let eventSearch
 let userSearch
@@ -19,28 +21,28 @@ let id=0;
 let events=[]
 let reservations=[]
 let collaborations=[];
-window.onload = ()=>{
-  if(localStorage.getItem('events')==null){
-    events=[]
+window.onload = () => {
+  if (localStorage.getItem("events") == null) {
+    events = [];
+  } else {
+    events = JSON.parse(localStorage.getItem("events"));
+  }
+  if (localStorage.getItem("reservations") == null) {
+    reservations = [];
+  } else {
+    reservations = JSON.parse(localStorage.getItem("reservations"));
+  }
+  if (localStorage.getItem("pastEvents") == null) {
+    pastEvents = [];
+  } else {
+    pastEvents = JSON.parse(localStorage.getItem("pastEvents"));
+  }
+};
 
-  }
-  else{
-    events=JSON.parse(localStorage.getItem('events'))
-  }
-  if(localStorage.getItem('reservations')==null){
-    reservations=[]
-    
-  }
-  else{
-    reservations=JSON.parse(localStorage.getItem('reservations'))
-  }
-}
-
-
-dashboardBtn.addEventListener('click',function(){
-    clear()
-    dashboardBtn.classList.add('active')
-    data=`
+dashboardBtn.addEventListener("click", function () {
+  clear();
+  dashboardBtn.classList.add("active");
+  data = `
     <!--Section: Minimal statistics cards-->
     <section>
       <div class="row">
@@ -309,20 +311,19 @@ dashboardBtn.addEventListener('click',function(){
     </section>
     <!--Section: Statistics with subtitles-->
     
-    `
-    mainContent.innerHTML=data;
-})
+    `;
+  mainContent.innerHTML = data;
+});
 
 // click on book cards on navbar
 
-reservationsBtn.addEventListener('click',function(){
+reservationsBtn.addEventListener("click", function () {
   clear();
-  reservationsBtn.classList.add('active');
+  reservationsBtn.classList.add("active");
   // in for loop but when osama solve his page
-  console.log(reservations)
-
   
-  data=`
+
+  data = `
   <div class="table">
         <table class="table text-center">
           <thead>
@@ -337,10 +338,10 @@ reservationsBtn.addEventListener('click',function(){
             </tr>
           </thead>
   
-          <tbody>`
-            for(i=0;i<reservations.length;i++){
-                 data+=` <tr>
-                 <td>${i+1}</td>
+          <tbody>`;
+  for (i = 0; i < reservations.length; i++) {
+    data += ` <tr>
+                 <td>${i + 1}</td>
                  <td>${reservations[i].userName}</td>
                  <td>${reservations[i].startDate}</td>
                  <td>${reservations[i].endDate}</td>
@@ -348,33 +349,33 @@ reservationsBtn.addEventListener('click',function(){
                  <td><button type="button" id="resAccept"  onclick="reservationAccept(${i})" class="btn btn-primary">Accept</button></td>
                  <td><button type="button" onclick="resrvationReject(${i})" class="btn btn-danger">Reject</button></td>
                  
-               </tr>`
-            }
-            
-          data+=`</tbody>
+               </tr>`;
+  }
+
+  data += `</tbody>
 
         </table>
       </div>
   `;
-  mainContent.innerHTML=data;
-})
+  mainContent.innerHTML = data;
+});
 //reservationAccept Function
-function reservationAccept(index){
-    reservations[index].accepted=true;
-    document.getElementById('resAccept').disabled=true;
-    localStorage.setItem('reservations',JSON.stringify(reservations));
-
+function reservationAccept(index) {
+  reservations[index].accepted = true;
+  document.getElementById("resAccept").disabled = true;
+  localStorage.setItem("reservations", JSON.stringify(reservations));
 }
-//reservationReject Function 
-function resrvationReject(index){
-  reservations.splice(index,1);
-  localStorage.setItem('reservations',JSON.stringify(reservations));
+//reservationReject Function
+function resrvationReject(index) {
+  reservations.splice(index, 1);
+  localStorage.setItem("reservations", JSON.stringify(reservations));
+  reservationsBtn.click();
 }
 
-eventsBtn.addEventListener('click',function(){
-    clear()
-    eventsBtn.classList.add('active')
-    var data=`
+eventsBtn.addEventListener("click", function () {
+  clear();
+  eventsBtn.classList.add("active");
+  var data = `
   <section>
   <div class="row">
     <div class="col-xl-6 col-md-12 mb-4">
@@ -426,32 +427,27 @@ eventsBtn.addEventListener('click',function(){
 
     </div>
     </section>
-    `
+    `;
 
-    
+  mainContent.innerHTML = data;
 
-    mainContent.innerHTML=data
+  eCards = document.getElementById("eCards");
+  eventSearch = document.getElementById("eventSearch");
 
-    eCards=document.getElementById("eCards")
-    eventSearch=document.getElementById("eventSearch")
-
-    displayEvents()
-    
-})
+  displayEvents();
+});
 
 /*################# Start Users section ################# */
 
-
-usersBtn.addEventListener('click',function(){
-  if(localStorage.getItem('users')==null){
-    users=[]
-  }
-  else{
-    users=JSON.parse(localStorage.getItem('users'))
+usersBtn.addEventListener("click", function () {
+  if (localStorage.getItem("users") == null) {
+    users = [];
+  } else {
+    users = JSON.parse(localStorage.getItem("users"));
   }
   clear();
-  usersBtn.classList.add('active');
-  var data=`
+  usersBtn.classList.add("active");
+  var data = `
   
   <section>
   <div class="row">
@@ -472,22 +468,18 @@ usersBtn.addEventListener('click',function(){
   </div>        
 </section>
 
-    `
+    `;
 
-  
-
-  mainContent.innerHTML=data;
-  userCard=document.getElementById("userCard");
-  userSearch=document.getElementById("userSearch");
+  mainContent.innerHTML = data;
+  userCard = document.getElementById("userCard");
+  userSearch = document.getElementById("userSearch");
   displayUsers();
-  
-})
+});
 
-async function addUser(){
+async function addUser() {
   const { value: formValues } = await Swal.fire({
-    title: 'تفاصيل الفعالية',
-    html:
-      `<input id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
+    title: "تفاصيل الفعالية",
+    html: `<input id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
        <input id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
        <input id="swal-input3" class="swal2-input w-75" placeholder="اسم المستخدم">
        <input id="swal-input4" class="swal2-input w-75" placeholder="رقم الهاتف">
@@ -498,75 +490,70 @@ async function addUser(){
     focusConfirm: false,
     preConfirm: () => {
       return [
-        document.getElementById('swal-input1').value,
-        document.getElementById('swal-input2').value,
-        document.getElementById('swal-input3').value,
-        document.getElementById('swal-input4').value,
-        document.getElementById('swal-input5').value,
-        document.getElementById('swal-input6').value,
-      ]
-    }
-  })
-  
+        document.getElementById("swal-input1").value,
+        document.getElementById("swal-input2").value,
+        document.getElementById("swal-input3").value,
+        document.getElementById("swal-input4").value,
+        document.getElementById("swal-input5").value,
+        document.getElementById("swal-input6").value,
+      ];
+    },
+  });
+
   if (formValues) {
-    Swal.fire(JSON.stringify(formValues))
+    Swal.fire(JSON.stringify(formValues));
   }
 
+  let user = {
+    firstName: formValues[0],
+    lastName: formValues[1],
+    userName: formValues[2],
+    phone: formValues[3],
+    age: formValues[4],
+    password: formValues[5],
+    src: "assets/images/profile/avatar2.png",
+  };
 
-
-  let user={
-    firstName:formValues[0],
-    lastName:formValues[1],
-    userName:formValues[2],
-    phone:formValues[3],
-    age:formValues[4],
-    password:formValues[5],
-    src:"assets/images/profile/avatar2.png",
-  }
-
-  
   users.push(user);
-  localStorage.setItem('users',JSON.stringify(users));
+  localStorage.setItem("users", JSON.stringify(users));
   displayUsers();
 
   Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Your work has been saved',
+    position: "center",
+    icon: "success",
+    title: "Your work has been saved",
     showConfirmButton: false,
-    timer: 1000
-  })
-
+    timer: 1000,
+  });
 }
-var loadFile = function (event,i) {
+var loadFile = function (event, i) {
   var image = document.getElementById(`output${i}`);
   //image.src = URL.createObjectURL(event.target.files[0]);
   const fr = new FileReader();
   fr.readAsDataURL(event.target.files[0]);
-  fr.addEventListener('load', ()=>{
-    const url=fr.result;
-    image.src =url;
-    users[i].src=url;
-    let user={
-      firstName:users[i].firstName,
-      lastName:users[i].lastName,
-      userName:users[i].userName,
-      phone:users[i].phone,
-      age:users[i].age,
-      password:users[i].password,
-      src:users[i].src,
-    }
-  users[i]=user;
-  
-  localStorage.setItem('users',JSON.stringify(users));
-  })
- 
+  fr.addEventListener("load", () => {
+    const url = fr.result;
+    image.src = url;
+    users[i].src = url;
+    let user = {
+      firstName: users[i].firstName,
+      lastName: users[i].lastName,
+      userName: users[i].userName,
+      phone: users[i].phone,
+      age: users[i].age,
+      password: users[i].password,
+      src: users[i].src,
+    };
+    users[i] = user;
+
+    localStorage.setItem("users", JSON.stringify(users));
+  });
 };
 
-function displayUsers(){
-  var data="";
-  for(var i=0;i<users.length;i++){
-    data+=`
+function displayUsers() {
+  var data = "";
+  for (var i = 0; i < users.length; i++) {
+    data += `
     <div class="col-xl-4 col-md-6 mb-4 ">
         <div class="card card-users border">
           <div  class="h-100 d-flex justify-content-center" >
@@ -597,102 +584,93 @@ function displayUsers(){
           </div>  
         </div>
       </div>
-    `
+    `;
   }
 
- 
-  userCard.innerHTML=data;
-
-  
-  
+  userCard.innerHTML = data;
 }
 
-function usersCardsEditDelete(id){
+function usersCardsEditDelete(id) {
   Swal.fire({
-    title: 'Delete Or Update',
+    title: "Delete Or Update",
     showDenyButton: true,
     showCancelButton: true,
-    confirmButtonText: 'Update',
+    confirmButtonText: "Update",
     denyButtonText: `Delete`,
-  }).then (async(result) => {
+  }).then(async (result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
       const { value: formValues } = await Swal.fire({
-        title: 'تفاصيل الفعالية',
-        html:
-          `<input value="${users[id].firstName}" id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
+        title: "تفاصيل الفعالية",
+        html: `<input value="${users[id].firstName}" id="swal-input1" class="swal2-input w-75" placeholder="الاسم الأول">
            <input value="${users[id].lastName}" id="swal-input2" class="swal2-input w-75" placeholder="الاسم الأخير">
            <input value="${users[id].userName}" id="swal-input3" class="swal2-input w-75" placeholder="اسم المستخدم">
            <input value="${users[id].phone}" id="swal-input4" class="swal2-input w-75" placeholder="رقم الجوال">
            <input value="${users[id].age}" id="swal-input5" class="swal2-input w-75" placeholder="العمر">
            <input value="${users[id].password}" id="swal-input6" class="swal2-input w-75" placeholder="كلمة السر">
            `,
-    
+
         focusConfirm: false,
         preConfirm: () => {
           return [
-            document.getElementById('swal-input1').value,
-            document.getElementById('swal-input2').value,
-            document.getElementById('swal-input3').value,
-            document.getElementById('swal-input4').value,
-            document.getElementById('swal-input5').value,
-            document.getElementById('swal-input6').value,
-          ]
-        }
-      })
-      
+            document.getElementById("swal-input1").value,
+            document.getElementById("swal-input2").value,
+            document.getElementById("swal-input3").value,
+            document.getElementById("swal-input4").value,
+            document.getElementById("swal-input5").value,
+            document.getElementById("swal-input6").value,
+          ];
+        },
+      });
+
       if (formValues) {
-        Swal.fire(JSON.stringify(formValues))
+        Swal.fire(JSON.stringify(formValues));
       }
       var image = document.getElementById(`output${id}`);
-      let user= await{
-        firstName:formValues[0],
-        lastName:formValues[1],
-        userName:formValues[2],
-        phone:formValues[3],
-        age:formValues[4],
-        password:formValues[5],
+      let user = await {
+        firstName: formValues[0],
+        lastName: formValues[1],
+        userName: formValues[2],
+        phone: formValues[3],
+        age: formValues[4],
+        password: formValues[5],
         src: image.src,
-      }
-      users[id]=user;      
-      localStorage.setItem('users',JSON.stringify(users));    
-      displayUsers();    
+      };
+      users[id] = user;
+      localStorage.setItem("users", JSON.stringify(users));
+      displayUsers();
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your work has been saved',
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
         showConfirmButton: false,
-        timer: 1000
-      })
-
+        timer: 1000,
+      });
     } else if (result.isDenied) {
-        users.splice(id,1);
-        localStorage.setItem("users",JSON.stringify(users));
-        displayUsers()
+      users.splice(id, 1);
+      localStorage.setItem("users", JSON.stringify(users));
+      displayUsers();
 
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'User has been deleted',
-          showConfirmButton: false,
-          timer: 1000
-        })
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "User has been deleted",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     }
-  })
-
-
+  });
 }
 
-function usersSearch(){
-  let data='';
-  let searchKey=userSearch.value;
+function usersSearch() {
+  let data = "";
+  let searchKey = userSearch.value;
 
-  for(var i=0;i<users.length;i++){
-    
-    let fullName=users[i].firstName+" "+users[i].lastName;
-    
-    if(fullName.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())){
-      data+=`
+  for (var i = 0; i < users.length; i++) {
+    let fullName = users[i].firstName + " " + users[i].lastName;
+
+    if (fullName.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())) {
+      data += `
       <div class="col-xl-4 col-md-6 mb-4 ">
           <div class="card card-users border">
             <div  class="h-100 d-flex justify-content-center" >
@@ -723,11 +701,11 @@ function usersSearch(){
             </div>  
           </div>
         </div>
-      `
+      `;
     }
   }
-   
-    userCard.innerHTML=data;
+
+  userCard.innerHTML = data;
 }
 
 /*################# End Users section ################# */
@@ -1001,18 +979,16 @@ function collaborationsSearch(){
 /*################# End Collaborations section ################# */
 
 
-
-function clear(){
-    for(var i=0;i<dashboardBtns.length;i++){
-        dashboardBtns.item(i).classList.remove('active')
-    }
+function clear() {
+  for (var i = 0; i < dashboardBtns.length; i++) {
+    dashboardBtns.item(i).classList.remove("active");
+  }
 }
 
-async function addEvent(){
+async function addEvent() {
   const { value: formValues } = await Swal.fire({
-    title: 'تفاصيل الفعالية',
-    html:
-      `<input id="swal-input1" class="swal2-input w-75" placeholder="عنوان الفعالية">
+    title: "تفاصيل الفعالية",
+    html: `<input id="swal-input1" class="swal2-input w-75" placeholder="عنوان الفعالية">
        <input id="swal-input2" class="swal2-input w-75" placeholder="شرح عن الفعالية">
        <input id="swal-input3" class="swal2-input w-75" placeholder="تاريخ الفعالية">
        <input id="swal-input4" class="swal2-input w-75" placeholder="موعد الفعالية">
@@ -1030,70 +1006,62 @@ async function addEvent(){
     focusConfirm: false,
     preConfirm: () => {
       return [
-        document.getElementById('swal-input1').value,
-        document.getElementById('swal-input2').value,
-        document.getElementById('swal-input3').value,
-        document.getElementById('swal-input4').value,
-        document.getElementById('swal-input5').value,
-        document.getElementById('swal-input6').value,
-        document.getElementById('swal-input7').value,
-      ]
-    }
-  })
-  
+        document.getElementById("swal-input1").value,
+        document.getElementById("swal-input2").value,
+        document.getElementById("swal-input3").value,
+        document.getElementById("swal-input4").value,
+        document.getElementById("swal-input5").value,
+        document.getElementById("swal-input6").value,
+        document.getElementById("swal-input7").value,
+      ];
+    },
+  });
+
   if (formValues) {
-    Swal.fire(JSON.stringify(formValues))
+    Swal.fire(JSON.stringify(formValues));
   }
 
+  let event = {
+    title: formValues[0],
+    description: formValues[1],
+    date: formValues[2],
+    time: formValues[3],
+    type: formValues[4],
+    price: formValues[5],
+    hashtag: formValues[6],
+  };
 
+  events.push(event);
 
-  let event={
-    title:formValues[0],
-    description:formValues[1],
-    date:formValues[2],
-    time:formValues[3],
-    type:formValues[4],
-    price:formValues[5],
-    hashtag:formValues[6]
-  }
+  localStorage.setItem("events", JSON.stringify(events));
 
-  
-  events.push(event)
-  
-  
-  localStorage.setItem('events',JSON.stringify(events));
-
-  displayEvents()
+  displayEvents();
 
   Swal.fire({
-    position: 'center',
-    icon: 'success',
-    title: 'Your work has been saved',
+    position: "center",
+    icon: "success",
+    title: "Your work has been saved",
     showConfirmButton: false,
-    timer: 1000
-  })
-
+    timer: 1000,
+  });
 }
 
-function displayEvents(){
-
-  let radioFilter=document.getElementsByName("flexRadioDefault")
-  var index
-  for(var i=0;i<radioFilter.length;i++){
-    if(radioFilter[i].checked){
-      index=i
-      break
+function displayEvents() {
+  let radioFilter = document.getElementsByName("flexRadioDefault");
+  var index;
+  for (var i = 0; i < radioFilter.length; i++) {
+    if (radioFilter[i].checked) {
+      index = i;
+      break;
     }
   }
 
-  console.log(radioFilter[index])
 
-  
 
-  var data=""
+  var data = "";
 
-  for(var i=0;i<events.length;i++){
-    data+=`
+  for (var i = 0; i < events.length; i++) {
+    data += `
     <div class="col-xl-4 col-md-12 mb-4 ">
     <div class="card card-events border">
       <a href="#" class="h-100 d-flex justify-content-center" onclick="cardsEditDelete(${i})">
@@ -1128,32 +1096,25 @@ function displayEvents(){
       </a>  
     </div>
   </div>
-    `
+    `;
   }
 
- 
-  eCards.innerHTML=data
-
-  
-  
+  eCards.innerHTML = data;
 }
 
-
-function cardsEditDelete(id){
+function cardsEditDelete(id) {
   Swal.fire({
-    title: 'Delete Or Update',
+    title: "Delete Or Update",
     showDenyButton: true,
     showCancelButton: true,
-    confirmButtonText: 'Update',
+    confirmButtonText: "Update",
     denyButtonText: `Delete`,
-  }).then (async(result) => {
+  }).then(async (result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-
       const { value: formValues } = await Swal.fire({
-        title: 'تفاصيل الفعالية',
-        html:
-          `<input value="${events[id].title}" id="swal-input1" class="swal2-input w-75" placeholder="عنوان الفعالية">
+        title: "تفاصيل الفعالية",
+        html: `<input value="${events[id].title}" id="swal-input1" class="swal2-input w-75" placeholder="عنوان الفعالية">
            <input value="${events[id].description}" id="swal-input2" class="swal2-input w-75" placeholder="شرح عن الفعالية">
            <input value="${events[id].date}" id="swal-input3" class="swal2-input w-75" placeholder="تاريخ الفعالية">
            <input value="${events[id].time}" id="swal-input4" class="swal2-input w-75" placeholder="موعد الفعالية">
@@ -1167,79 +1128,121 @@ function cardsEditDelete(id){
            <input value="${events[id].price}" id="swal-input6" class="swal2-input w-75" placeholder="سعر الحجز">
            <input value="${events[id].hashtag}" id="swal-input7" class="swal2-input w-75" placeholder="#هاشتاج الفعالية">
            `,
-    
+
         focusConfirm: false,
         preConfirm: () => {
           return [
-            document.getElementById('swal-input1').value,
-            document.getElementById('swal-input2').value,
-            document.getElementById('swal-input3').value,
-            document.getElementById('swal-input4').value,
-            document.getElementById('swal-input5').value,
-            document.getElementById('swal-input6').value,
-            document.getElementById('swal-input7').value,
-          ]
-        }
-      })
-      
+            document.getElementById("swal-input1").value,
+            document.getElementById("swal-input2").value,
+            document.getElementById("swal-input3").value,
+            document.getElementById("swal-input4").value,
+            document.getElementById("swal-input5").value,
+            document.getElementById("swal-input6").value,
+            document.getElementById("swal-input7").value,
+          ];
+        },
+      });
+
       if (formValues) {
-        Swal.fire(JSON.stringify(formValues))
+        Swal.fire(JSON.stringify(formValues));
       }
 
-      let event= await{
-        title:formValues[0],
-        description:formValues[1],
-        date:formValues[2],
-        time:formValues[3],
-        type:formValues[4],
-        price:formValues[5],
-        hashtag:formValues[6]
+      let event = await {
+        title: formValues[0],
+        description: formValues[1],
+        date: formValues[2],
+        time: formValues[3],
+        type: formValues[4],
+        price: formValues[5],
+        hashtag: formValues[6],
       }
-    
-      events[id]=event
-      
-      localStorage.setItem('events',JSON.stringify(events));
-    
-      displayEvents()
-    
+
+      events[id] = event
+
+      localStorage.setItem("events", JSON.stringify(events))
+
+      displayEvents();
+
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your work has been saved',
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
         showConfirmButton: false,
-        timer: 1000
-      })
-
+        timer: 1000,
+      });
     } else if (result.isDenied) {
-        events.splice(id,1)
-        localStorage.setItem("events",JSON.stringify(events));
-        displayEvents()
+      Swal.fire({
+        title: "هل تريد حذف ام ارسال تفاصيل الفعالية الى ستيج الذكرى?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "ستيج الذكرى",
+        denyButtonText: `تاكيد الحذف`,
+      }).then(async(result) => {
+        /* Read more about isConfirmed, isDenied below */
+        
+        if (result.isConfirmed) {
 
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Your work has been saved',
-          showConfirmButton: false,
-          timer: 1000
-        })
+          let pastEvent={
+            title:events[id].title,
+            description:events[id].description,
+            src:"",
+          }
+          
+          const { value: file } = await Swal.fire({
+            title: 'Select image',
+            input: 'file',
+            inputAttributes: {
+              'accept': 'image/*',
+              'aria-label': 'Upload past event picture'
+            }
+          })
+   
+          if (file) {
+            const reader = new FileReader()  
+            reader.onload = (e) => {
+              Swal.fire({
+                title: 'Your uploaded picture',
+                imageUrl: e.target.result,
+                imageAlt: 'The uploaded picture'
+              })
+              pastEvent.src=e.target.result
+              pastEvents.push(pastEvent)
+              localStorage.setItem('pastEvents',JSON.stringify(pastEvents))
+            }
+            reader.readAsDataURL(file)
+          }
+          Swal.fire("تم الارسال الى ستيج الذكرى", "", "success");
+          
+        } else if (result.isDenied) {
+          events.splice(id, 1);
+          localStorage.setItem("events", JSON.stringify(events));
+          displayEvents();
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          Swal.fire("تم الحذف بنجاح", "", "success");
+        }
+      });
     }
-  })
-
-
+  });
 }
 
+function eventsSearch() {
+  let data = "";
+  let searchKey = eventSearch.value;
 
-
-
-function eventsSearch(){
-  let data='';
-  let searchKey=eventSearch.value
-
-  for(var i=0;i<events.length;i++){
-
-    
-    if(events[i].title.toLocaleLowerCase().includes(searchKey.toLocaleLowerCase())){
-      data+=`
+  for (var i = 0; i < events.length; i++) {
+    if (
+      events[i].title
+        .toLocaleLowerCase()
+        .includes(searchKey.toLocaleLowerCase())
+    ) {
+      data += `
       <div class="col-xl-4 col-md-12 mb-4 ">
       <div class="card card-events border">
         <a href="#" class="h-100 d-flex justify-content-center" onclick="cardsEditDelete(${i})">
@@ -1274,9 +1277,9 @@ function eventsSearch(){
         </a>  
       </div>
     </div>
-      `
+      `;
     }
   }
 
-  eCards.innerHTML=data
+  eCards.innerHTML = data;
 }

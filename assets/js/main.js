@@ -145,3 +145,69 @@ window.onload = ()=>{
     collabs.innerHTML=data;
 }
  
+
+
+//pastEvents 
+
+let pastEvent=document.getElementById('pastEvents')
+let indicator=document.getElementById('indicator')
+let pastEvents=[]
+
+if(localStorage.getItem('pastEvents')==null){
+    pastEvents=[]
+}
+else{
+    pastEvents=JSON.parse(localStorage.getItem('pastEvents'));
+
+    displayPastEvents()
+}
+
+function displayPastEvents(){
+    let dataEvents=``
+    let dataIndicator=``
+
+    for(var i=0;i<pastEvents.length;i++){
+        dataEvents+=`
+        <div class="carousel-item active">
+        <a href="#">
+          <img
+            src="${pastEvents[i].src}"
+            class="d-block img-fluid"
+            alt="..."
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>${pastEvents[i].title}</h5>
+            <p>${pastEvents[i].description}</p>
+          </div>
+        </a>
+      </div>
+        `
+        dataIndicator+=`
+        <button
+              type="button"
+              data-bs-target="#carouselExampleAutoplaying"
+              data-bs-slide-to="${i}"
+              class="active"
+              aria-current="true"
+              aria-label="Slide ${i+1}"
+            >
+              <img
+                src="${pastEvents[i].src}"
+                class="d-clock w-100 rounded"
+                alt=""
+              />
+            </button>
+        `
+    }
+
+    pastEvent.innerHTML=dataEvents
+    indicator.innerHTML=dataIndicator
+
+    
+
+
+    
+
+
+
+}
