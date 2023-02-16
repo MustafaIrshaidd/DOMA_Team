@@ -104,4 +104,3 @@ ScrollReveal().reveal('.book .content h4', { delay: 100, origin:'left'});
 ScrollReveal().reveal('.book .content p', { delay: 200, origin:'left'});
 
 // main page video 
-
