@@ -506,6 +506,10 @@ a{
     
 }
 
+.modal-content{
+    background-color: transparent !important;
+}
+
 
 @media screen and (max-width:1000px){
     .video,  .about-us .content  {
