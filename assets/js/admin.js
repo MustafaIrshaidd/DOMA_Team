@@ -7,7 +7,7 @@ let mainContent = document.getElementById("mainContent");
 let usersBtn = document.getElementById("usersBtn");
 let reservationsBtn = document.getElementById("reservationsBtn");
 let collaborationsBtn=document.getElementById('collaborationsBtn')
-
+let messageBtn=document.getElementById('messageBtn')
 let pastEvents = [];
 
 let eventSearch
@@ -21,7 +21,7 @@ let id=0;
 let events=[]
 let reservations=[]
 let collaborations=[]
-
+let messages=[]
 window.onload = () => {
   if (localStorage.getItem("events") == null) {
     events = [];
@@ -37,6 +37,11 @@ window.onload = () => {
     pastEvents = [];
   } else {
     pastEvents = JSON.parse(localStorage.getItem("pastEvents"));
+  }
+  if (localStorage.getItem("messages") == null) {
+    messages = [];
+  } else {
+    messages = JSON.parse(localStorage.getItem("messages"));
   }
 };
 
@@ -372,6 +377,71 @@ function resrvationReject(index) {
   localStorage.setItem("reservations", JSON.stringify(reservations));
   reservationsBtn.click();
 }
+
+
+
+
+// click on messages on navbar
+
+messageBtn.addEventListener("click", function () {
+  clear();
+  messageBtn.classList.add("active");
+  data = `
+  <div class="tableMsg">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">User Name</th>
+              <th scope="col">email</th>
+              <th scope="col">message</th>
+              <th scope="col">Accept</th>
+              <th scope="col">Reject</th>
+            </tr>
+          </thead>
+  
+          <tbody>`;
+  for (i = 0; i < messages.length; i++) {
+    data += ` <tr>
+                 <td>${i + 1}</td>
+                 <td>${messages[i].userName}</td>
+                 <td>${messages[i].email}</td>
+                 <td>${messages[i].msg}</td>
+                 <td><button type="button" id="msgAccept"  onclick="messageAccept(${i})" class="btn btn-primary">Accept</button></td>
+                 <td><button type="button" onclick="messageReject(${i})" class="btn btn-danger">Reject</button></td>
+               </tr>`;
+  }
+
+  data += `</tbody>
+
+        </table>
+      </div>
+  `;
+  mainContent.innerHTML = data;
+});
+
+//messageAccept Function
+function messageAccept(index) {
+  messages[index].accepted = true;
+  document.getElementById("msgAccept").disabled = true;
+  localStorage.setItem("messages", JSON.stringify(messages));
+}
+//messageReject Function
+function messageReject(index) {
+  messages.splice(index, 1);
+  localStorage.setItem("messages", JSON.stringify(messages));
+  messageBtn.click();
+}
+
+
+
+
+
+
+
+
+
+
 
 eventsBtn.addEventListener("click", function () {
   clear();
@@ -1285,5 +1355,5 @@ function eventsSearch() {
   eCards.innerHTML = data;
 }
 
-let messages=[]
+
 
